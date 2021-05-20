@@ -14,7 +14,7 @@ class InnController extends Controller
      */
     public function index()
     {
-        //
+        return view('inn.index');
     }
 
     /**
@@ -81,5 +81,11 @@ class InnController extends Controller
     public function destroy(Inn $inn)
     {
         //
+    }
+
+
+    public function search(Request $request){
+        $inns = Inn::where('name','LIKE', $request->input('name'))->orderBy('created_at', 'desc')->paginate(5);
+        return view('admin/inns/index', ['inns' => $inns]);
     }
 }
