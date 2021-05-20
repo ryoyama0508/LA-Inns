@@ -9,5 +9,4 @@ class AdminHomeController extends Controller
     public function admin_home(){
         return view( 'home' );
     }
-
 }
