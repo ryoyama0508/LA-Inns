@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Inn;
 use Illuminate\Http\Request;
+use DB;
 
 class InnController extends Controller
 {
@@ -14,7 +15,7 @@ class InnController extends Controller
      */
     public function index()
     {
-        return view('inn_index');
+        return view('inn_index',['inns'=>[]]);
     }
 
     /**
@@ -85,7 +86,8 @@ class InnController extends Controller
 
 
     public function search(Request $request){
-        $inns = Inn::where('name','LIKE', $request->input('name'))->orderBy('created_at', 'desc')->paginate(5);
-        return view('inn', ['inns' => $inns]);
+        $search = $request->input("search");
+        $inns = DB::table('inns')->where('name','LIKE', "%{$search}%")->get();
+        return view('inn_index', ['inns' => $inns]);
     }
 }

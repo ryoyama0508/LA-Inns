@@ -9,7 +9,7 @@
 <p uk-margin>
     <button class="uk-button uk-button-default uk-button-large" type="button" onclick="window.location='{{ route( "user_index" ) }}'">会員検索</button>
     <button class="uk-button uk-button-default uk-button-large">
-        <a href="{{ route( "inn_index" ) }}">宿管理</a>
+        <a href="inns">宿管理</a>
     </button>
 </p>
 @endsection

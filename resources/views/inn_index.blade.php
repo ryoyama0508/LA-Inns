@@ -7,7 +7,10 @@
 
 @section( 'tbody' )
 <form class="uk-search uk-search-default" id="inn_search">
-    <span class="uk-search-icon-flip" uk-search-icon></span>
-    <input class="uk-search-input" type="search" placeholder="Search">
+    <a href= "{{ route("inn_search")}}" uk-search-icon type="submit" method="get"></a>
+    <input class="uk-search-input" type="search" placeholder="Search" name="search">
 </form>
+@foreach ($inns as $inn)
+    <p>This is inn {{ $inn->name }}</p>
+@endforeach
 @endsection
