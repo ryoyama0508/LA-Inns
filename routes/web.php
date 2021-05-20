@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Routing\Route;
+
+Route::get('/', 'AdminHomeController@admin_home')->name( 'admin_home' );
