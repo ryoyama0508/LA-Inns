@@ -14,7 +14,6 @@ class InnController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
