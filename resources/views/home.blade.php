@@ -6,10 +6,6 @@
 @endsection
 
 @section( 'tbody' )
-<p uk-margin>
-    <button class="uk-button uk-button-default uk-button-large" type="button" onclick="window.location='{{ route( "user_index" ) }}'">会員検索</button>
-    <button class="uk-button uk-button-default uk-button-large">
-        <a href="inns">宿管理</a>
-    </button>
-</p>
+<a class="uk-button uk-button-default uk-button-large" type="button" href="{{ route( 'users.index' ) }}">会員検索</a>
+<a class="uk-button uk-button-default uk-button-large" type="button" href="{{ route( 'inns.index' ) }}">宿管理</a>
 @endsection

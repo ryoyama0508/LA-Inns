@@ -13,9 +13,8 @@
 
 
 Route::get('/', 'AdminHomeController@admin_home')->name( 'admin_home' );
-
-
 Route::get( '/user_index', 'UserController@index' )->name( 'user_index' );
-
 Route::resource('inns', 'InnController');
 Route::get('innSearch', 'InnController@search')->name('inn_search');
+Route::resource( 'users', 'UserController' );
+Route::get( 'userSearch', 'UserController@search' )->name( 'user_search' );
