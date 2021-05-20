@@ -14,5 +14,5 @@
 
 Route::get('/', 'AdminHomeController@admin_home')->name( 'admin_home' );
 
-Route::resource('Inn', 'InnController');
-// Route::get('Inn/search', 'InnController@search');
+Route::get('Inn', 'InnController@index')->name('inn_index');
+Route::get( '/user_index', 'UserController@index' )->name( 'user_index' );

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Inn;
 use Illuminate\Http\Request;
 
-class InnController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class InnController extends Controller
      */
     public function index()
     {
-        return view('inn_index');
+        return view('user_search');
     }
 
     /**
@@ -41,10 +40,10 @@ class InnController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Inn  $inn
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Inn $inn)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class InnController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Inn  $inn
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inn $inn)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class InnController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Inn  $inn
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inn $inn)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,17 +74,11 @@ class InnController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Inn  $inn
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inn $inn)
+    public function destroy($id)
     {
         //
-    }
-
-
-    public function search(Request $request){
-        $inns = Inn::where('name','LIKE', $request->input('name'))->orderBy('created_at', 'desc')->paginate(5);
-        return view('inn', ['inns' => $inns]);
     }
 }

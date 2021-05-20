@@ -7,9 +7,9 @@
 
 @section( 'tbody' )
 <p uk-margin>
-    <button class="uk-button uk-button-default uk-button-large">会員管理</button>
+    <button class="uk-button uk-button-default uk-button-large" type="button" onclick="window.location='{{ route( "user_index" ) }}'">会員検索</button>
     <button class="uk-button uk-button-default uk-button-large">
-        <a href="{{ route('admin.inns.index', $post) }}">宿管理 </a>
+        <a href="{{ route( "inn_index" ) }}">宿管理</a>
     </button>
 </p>
 @endsection
