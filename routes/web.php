@@ -11,6 +11,6 @@
 |
 */
 
-use Illuminate\Routing\Route;
 
 Route::get('/', 'AdminHomeController@admin_home')->name( 'admin_home' );
+Route::get( '/user_index', 'UserController@index' )->name( 'user_index' );
