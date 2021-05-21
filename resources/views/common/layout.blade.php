@@ -15,8 +15,8 @@
     </div>
 
     <div class="uk-margin">
-        @yield( 'tbody' ) 
-    </div> 
+        @yield( 'tbody' )
+    </div>
 </body>
 
 </html>

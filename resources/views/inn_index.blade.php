@@ -1,9 +1,17 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<h1 class="uk-heading">宿検索</h1>
-<hr>
+<div class="uk-margin-small-left uk-margin-small-top uk-margin-remove-right uk-text-left">
+    <a class="uk-button uk-button-default" href="{{ route( 'admin_home' ) }}">戻る</a>
+</div>
+<div class="uk-text-center">
+    <h1 class="uk-heading">宿検索</h1>
+</div>
+<div class="uk-margin-small-right uk-margin-small-top uk-margin-remove-left uk-text-right">
+    <a class="uk-button uk-button-default" href="{{ route( 'inns.create' ) }}">宿新規登録</a>
+</div>
 @endsection
+<hr>
 
 @section( 'tbody' )
 <form class="uk-search uk-search-default" action="{{ route( 'inn_search' ) }}" method="GET">
