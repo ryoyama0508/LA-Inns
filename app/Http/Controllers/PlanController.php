@@ -14,7 +14,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        return view( 'plan_index' );
+        return view( 'plan_index', ['plans'=>[]]);
     }
 
     /**
@@ -82,5 +82,33 @@ class PlanController extends Controller
     public function destroy(Plan $plan)
     {
         //
+    }
+
+    public function createOnePlan(Request $request){
+        if( isset($request->all()['plans']) ){
+            $plans = $request->all()['plans'];
+            return view('plan_create', ['plans' => $plans]);
+        }else{
+            return view('plan_create', ['plans'=>[]]);
+        }
+    }
+
+    public function append(Request $request){
+        $plans = array();
+        if (isset($request->all()['plans'])){
+            $plans = $request->all()['plans'];
+            foreach ($plans as $tmp_plan) {
+                $plan = new Plan;
+                if( isset($tmp_plan->name) ){
+                    $plan->name = $tmp_plan->name;
+                    $plans[] = $plan;
+                } 
+            }
+        }
+        $plan = new Plan;
+        if( isset($request->name) ) $plan->name = $request->name;
+        $plans[] = $plan;
+        
+        return view( 'plan_index', ['plans' => $plans]);
     }
 }

@@ -10,5 +10,18 @@
 @endsection
 
 @section( 'tbody' )
-<a class="button" href="">追加</a>
+
+@foreach ($plans as $plan)
+    <p>{{ $plan }}</p>    
+@endforeach
+
+
+<form action="{{ route('createOnePlan') }}" method="POST">
+    @csrf
+    
+    @foreach ($plans as $plan)
+        <input type="hidden" name="plans[]" value="{{ $plan }}">    
+    @endforeach
+    <input type="submit" value="追加">
+</form>
 @endsection
