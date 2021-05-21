@@ -26,7 +26,7 @@
         
         <p>
             <label for="name">パスワード</label>
-            <input class="uk-input uk-form-width-medium" type="text" name="passwd" value="{{ $user->passwd }}">
+            <input class="uk-input uk-form-width-medium" type="text" name="password" value="{{ $user->password }}">
         </p>
         <button type="submit" class="uk-button uk-button-default">変更する</button>
     </form>
