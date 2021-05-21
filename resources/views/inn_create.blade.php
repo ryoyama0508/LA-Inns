@@ -32,7 +32,7 @@
                 <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout"></label>
             </div>
             <div>
-                プラン<a href="">プラン追加</a>
+                プラン<a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
             </div>
             <div>
                 画像<input id="image" type="file" name="pic_path">

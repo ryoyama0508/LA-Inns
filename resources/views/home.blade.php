@@ -14,5 +14,5 @@
 <div>
     <a id="user_serch" type="button" href="{{ route( 'users.index' ) }}">会員検索</a>
     <a id=innmg type="button" href="{{ route( 'inns.index' ) }}">宿管理</a>
-    </div>
+</div>
 @endsection

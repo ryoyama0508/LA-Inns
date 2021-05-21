@@ -8,10 +8,6 @@
     
     <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d3c2dd31a75579c54426118688904349f4f4095e
 </head>
 <body>
     <div class="uk-margin uk-child-width-expand@s" uk-grid> 

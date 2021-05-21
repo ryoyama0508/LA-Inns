@@ -14,7 +14,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        return view( 'plan_index' );
     }
 
     /**
@@ -24,7 +24,7 @@ class PlanController extends Controller
      */
     public function create()
     {
-        return view(  )
+        //
     }
     
 
