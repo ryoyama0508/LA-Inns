@@ -22,9 +22,9 @@
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
         <p>This is inn {{ $inn->name }}</p>
         <div class="uk-flex">
-            <a class="uk-margin-left" href="{{ route( 'inns.edit', $inn->id ) }}">情報を変更する</a>
+            <a class="uk-margin-left" href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
             <a class="uk-margin-left" href="" onclick="deleteInn()">削除する</a>
-            <form action="{{ route( 'inns.destroy', $inn->id ) }}" method="POST" id="delete-form">
+            <form action="{{ route( 'inns.destroy', $inn ) }}" method="POST" id="delete-form{{ $inn->id }}">
                 @csrf
                 @method( 'delete' )
             </form>
@@ -32,7 +32,7 @@
                 function deleteInn(){
                     event.preventDefault();
                     if( window.confirm( '本当に削除しますか？' ) ){
-                        document.getElementById( 'delete-form' ).submit();
+                        document.getElementById( "delete-form{{ $inn->id }}" ).submit();
                     }
                 }
             </script>
