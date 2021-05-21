@@ -67,7 +67,7 @@ class InnController extends Controller
      */
     public function edit(Inn $inn)
     {
-        return view( 'user_edit', [ 'user' => Inn::findOrFail($inn->id) ] );
+        return view( 'inn_edit', [ 'inn' => Inn::findOrFail($inn->id) ] );
     }
 
     /**
@@ -79,7 +79,11 @@ class InnController extends Controller
      */
     public function update(Request $request, Inn $inn)
     {
-        //
+        if( isset($request->name) ) $inn->name = $request->name;
+        if( isset($request->address) ) $inn->address = $request->address;
+        if( isset($request->rooms) ) $inn->rooms = $request->rooms;
+        $inn->save();
+        return redirect( route( 'inns.index' ) );
     }
 
     /**
