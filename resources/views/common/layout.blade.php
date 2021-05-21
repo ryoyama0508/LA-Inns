@@ -10,11 +10,11 @@
 
 </head>
 <body>
-    <div class="uk-margin uk-child-width-expand@s" uk-grid> 
+    <div> 
         @yield( 'header' )
     </div>
 
-    <div class="uk-margin">
+    <div>
         @yield( 'tbody' ) 
     </div> 
 </body>
