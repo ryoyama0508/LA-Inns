@@ -15,21 +15,22 @@
         <p>This is inn {{ $inn->name }}</p>
         <div class="uk-flex">
             <a class="uk-margin-left" href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
-            <a class="uk-margin-left" href="" onclick="deleteInn()">削除する</a>
+            <a class="uk-margin-left" href="" onclick="deleteInn({{ $inn->id }})">削除する</a>
             <form action="{{ route( 'inns.destroy', $inn ) }}" method="POST" id="delete-form{{ $inn->id }}">
                 @csrf
                 @method( 'delete' )
             </form>
-            <script type="text/javascript">
-                function deleteInn(){
-                    event.preventDefault();
-                    if( window.confirm( '本当に削除しますか？' ) ){
-                        document.getElementById( "delete-form{{ $inn->id }}" ).submit();
-                    }
-                }
-            </script>
         </div>
     </div>
-    
 @endforeach
+
+<script type="text/javascript">
+    function deleteInn(id){
+        event.preventDefault();
+        if( window.confirm( '本当に削除しますか？' ) ){
+            document.getElementById( "delete-form"+String(id) ).submit();
+        }
+    }
+</script>
+
 @endsection
