@@ -1,4 +1,4 @@
-header{
+hedder{
     text-align: center;
     font-size: 15px;
     stop-color: rgb(86, 133, 10);
@@ -26,4 +26,8 @@ span{
     border-radius: 50%;
     width: 36px;
     height: 36px;
+}
+#backhome{font-size: 24px;
+    margin: 20;
+
 }

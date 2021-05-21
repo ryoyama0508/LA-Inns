@@ -55,9 +55,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find( $id );
+        $user = User::find( $user->id );
         return view( 'user_edit', [ 'user' => $user ] );
     }
 
@@ -85,10 +85,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
-        // \var_dump( $id );
-        $user = User::find( $id );
-        $user->delete();
+    {
+        User::find( $id )->delete();
         return redirect( route( 'users.index' ) );
     }
 
