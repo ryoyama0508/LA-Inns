@@ -92,7 +92,6 @@ class UserController extends Controller
     }
 
     public function search( Request $request ){
-        // echo '<pre>' . var_export($request->name, true) . '</pre>';        
         $users = User::where( 'name', 'LIKE' , "%$request->name%" )->get();
         return view( 'user_index', [ 'users' => $users ] );
     }
