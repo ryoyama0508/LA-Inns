@@ -1,0 +1,29 @@
+header{
+    text-align: center;
+    font-size: 15px;
+    stop-color: rgb(86, 133, 10);
+    font-style: fantasy;
+
+
+}
+
+tbody{
+ text-align: center;
+}
+
+
+
+
+
+h1{
+    font-size: 2.23125rem;
+    font-weight: 700;
+    margin: 20 auto;
+    letter-spacing: 10;
+}
+span{
+    background: aquamarine;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}

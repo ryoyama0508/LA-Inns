@@ -11,11 +11,10 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
-    <style>
-        header{
-            text-align: center;
-        }
-    </style>
+   
+    
+    <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
+
 </head>
 <body>
     <header class="header">
