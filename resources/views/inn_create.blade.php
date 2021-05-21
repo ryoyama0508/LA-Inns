@@ -2,31 +2,43 @@
 
 @section( 'header' )
 <div>
-    <a href="{{ route( 'inns.index' ) }}">戻る</a>
+    <a href="{{ route( 'inns.index' ) }}">宿検索に戻る</a>
 </div>
 <div>
-    <h1>宿新規作成</h1>
+    <h1>宿新規登録</h1>
 </div>
+<div></div>
 @endsection
-
+<hr>
 
 @section( 'tbody' )
-<form action="{{ route( 'inns.store' ) }}">
-    <p>
-        <label>宿名<input type="text" name="name"></label>
-    </p>
-    <p>
-        <label>住所<input type="text" name="address"></label>
-    </p>
-    <p>
-        <label>部屋数<input type="text" name="rooms"></label>
-    </p>
-    <p>
-        <label>チェックイン時間<input type="text" name="checkin"></label>
-    </p>
-    <p>
-        <label>チェックアウト時間<input type="text" name="checkout"></label>
-    </p>
-    <button type="submit">登録する</button> 
-</form>
+<div>  
+    <div>
+        <form action="{{ route( 'inns.store' ) }}" method="POST">
+            @csrf
+            <div>
+                <label>宿名　<input class="uk-input" type="text" name="name"></label>
+            </div>
+            <div>
+                <label>住所　<input class="uk-input" type="text" name="address"></label>
+            </div>
+            <div>
+                <label>部屋数　<input class="uk-input" type="text" name="rooms"></label>
+            </div>
+            <div>
+                <label>チェックイン時間　<input class="uk-input" type="text" name="checkin"></label>
+            </div>
+            <div>
+                <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout"></label>
+            </div>
+            <div>
+                プラン<a href="">プラン追加</a>
+            </div>
+            <div>
+                画像<input id="image" type="file" name="pic_path">
+            </div>
+            <button type="submit">登録</button>
+        </form>
+    </div>
+</div>
 @endsection

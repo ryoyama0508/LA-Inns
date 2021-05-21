@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'AdminHomeController@admin_home')->name( 'admin_home' );
 
 Route::resource('inns', 'InnController');

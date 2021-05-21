@@ -24,8 +24,9 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+        return view(  )
     }
+    
 
     /**
      * Store a newly created resource in storage.

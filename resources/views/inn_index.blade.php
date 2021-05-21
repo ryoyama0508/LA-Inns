@@ -1,14 +1,15 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<div>
-    <a href="{{ route( 'admin_home' ) }}">戻る</a>
+
+<div class="uk-margin-small-left uk-margin-small-top uk-margin-remove-right uk-text-left">
+    <a class="uk-button uk-button-default" href="{{ route( 'admin_home' ) }}">戻る</a>
 </div>
-<div>
-    <a href="{{ route( 'inns.create' ) }}">宿新規作成</a>
+<div class="uk-text-center">
+    <h1 class="uk-heading">宿検索</h1>
 </div>
-<div>
-    <h1>宿検索</h1>
+<div class="uk-margin-small-right uk-margin-small-top uk-margin-remove-left uk-text-right">
+    <a class="uk-button uk-button-default" href="{{ route( 'inns.create' ) }}">宿新規登録</a>
 </div>
 @endsection
 <hr>
@@ -21,23 +22,24 @@
 @foreach ($inns as $inn)
     <div>
         <p>This is inn {{ $inn->name }}</p>
-        <div>
-            <a href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
-            <a href="" onclick="deleteInn()">削除する</a>
+        <div class="uk-flex">
+            <a class="uk-margin-left" href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
+            <a class="uk-margin-left" href="" onclick="deleteInn({{ $inn->id }})">削除する</a>
             <form action="{{ route( 'inns.destroy', $inn ) }}" method="POST" id="delete-form{{ $inn->id }}">
                 @csrf
                 @method( 'delete' )
             </form>
-            <script type="text/javascript">
-                function deleteInn(){
-                    event.preventDefault();
-                    if( window.confirm( '本当に削除しますか？' ) ){
-                        document.getElementById( "delete-form{{ $inn->id }}" ).submit();
-                    }
-                }
-            </script>
         </div>
     </div>
-    
 @endforeach
+
+<script type="text/javascript">
+    function deleteInn(id){
+        event.preventDefault();
+        if( window.confirm( '本当に削除しますか？' ) ){
+            document.getElementById( "delete-form"+String(id) ).submit();
+        }
+    }
+</script>
+
 @endsection
