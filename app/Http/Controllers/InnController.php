@@ -86,8 +86,7 @@ class InnController extends Controller
 
 
     public function search(Request $request){
-        $search = $request->input("search");
-        $inns = DB::table('inns')->where('name','LIKE', "%{$search}%")->get();
+        $inns = Inn::where('name','LIKE', "%$request->name%")->get();
         return view('inn_index', ['inns' => $inns]);
     }
 }
