@@ -16,27 +16,26 @@
 <div>
     @if( isset( $users ) )
     @foreach ( $users as $user )
-        <div class="uk-margin uk-animation-slide-bottom-small">
-            <h3>{{ $user->name }}</h3>
-            <p>{{ $user->email }}</p>
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <p>username {{ $user->name }}</p>
             <div class="uk-flex">
                 <a class="uk-margin-left" href="{{ route( 'users.edit', $user->id ) }}">情報を変更する</a>
-                <a class="uk-margin-left" href="" onclick="deleteUser()">削除する</a>
-                <form action="{{ route( 'users.destroy', $user->id ) }}" method="POST" id="delete-form">
+                <a class="uk-margin-left" href="" onclick="deleteUser({{ $user->id }})">削除する</a>
+                <form action="{{ route( 'users.destroy', $user->id ) }}" method="POST" id="delete-form{{ $user->id }}">
                     @csrf
                     @method( 'delete' )
                 </form>
-                <script type="text/javascript">
-                    function deleteUser(){
-                        event.preventDefault();
-                        if( window.confirm( '本当に削除しますか？' ) ){
-                            document.getElementById( 'delete-form' ).submit();
-                        }
-                    }
-                </script>
             </div>
         </div>
     @endforeach
+    <script type="text/javascript">
+        function deleteUser(id){
+            event.preventDefault();
+            if( window.confirm( '本当に削除しますか？' ) ){
+                document.getElementById( "delete-form"+String(id) ).submit();
+            }
+        }
+    </script>
     @endif    
 </div>
 
