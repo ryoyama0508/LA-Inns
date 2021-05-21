@@ -58,7 +58,7 @@ class InnController extends Controller
      */
     public function edit(Inn $inn)
     {
-        //
+        return view( 'user_edit', [ 'user' => Inn::findOrFail($inn->id) ] );
     }
 
     /**
@@ -81,7 +81,8 @@ class InnController extends Controller
      */
     public function destroy(Inn $inn)
     {
-        //
+        Inn::findOrFail($inn->id)->delete();
+        return redirect( route( 'inns.index' ) );
     }
 
 
