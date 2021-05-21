@@ -7,7 +7,7 @@
 
 @section( 'tbody' )
 <form action="{{ route( 'inn_search' ) }}" method="GET">
-    <input class="uk-search-input" type="search" name="name" placeholder="名前" value="{{ old('name') }}">
+    <input  type="search" name="name" placeholder="名前" value="{{ old('name') }}">
     <button type="submit"></button>
 </form>
 @foreach ($inns as $inn)
