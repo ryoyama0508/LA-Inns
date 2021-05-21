@@ -2,13 +2,13 @@
 
 @section( 'header' )
 <div class="uk-margin-small-left uk-margin-small-top uk-margin-remove-right uk-text-left">
-    <a class="uk-button uk-button-default" href="{{  }}">戻る</a>
+    <a class="uk-button uk-button-default" href="{{ route( 'admin_home' ) }}">戻る</a>
 </div>
-<div>
+<div class="uk-text-center">
     <h1 class="uk-heading">宿検索</h1>
 </div>
-<div>
-
+<div class="uk-margin-small-right uk-margin-small-top uk-margin-remove-left uk-text-right">
+    <a class="uk-button uk-button-default" href="{{ route( 'inns.create' ) }}">宿新規登録</a>
 </div>
 @endsection
 <hr>

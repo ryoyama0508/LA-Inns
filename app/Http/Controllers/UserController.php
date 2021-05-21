@@ -85,7 +85,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {   
+        // \var_dump( $id );
         $user = User::find( $id );
         $user->delete();
         return redirect( route( 'users.index' ) );
