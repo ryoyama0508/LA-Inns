@@ -11,6 +11,10 @@
     <button type="submit" class="uk-search-icon-flip" uk-search-icon></button>
 </form>
 @foreach ($inns as $inn)
-    <p>This is inn {{ $inn->name }}</p>
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <p>This is inn {{ $inn->name }}</p>
+        <p>{{ $user->email }}</p>
+    </div>
+    
 @endforeach
 @endsection
