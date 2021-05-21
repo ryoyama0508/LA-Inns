@@ -89,4 +89,9 @@ class InnController extends Controller
         $inns = Inn::where('name','LIKE', "%$request->name%")->get();
         return view('inn_index', ['inns' => $inns]);
     }
+
+    public function changeInfo(Inn $inn){
+        $inn = Inn::where('id','=', "$inn->id")->get();
+        return view('inn_change_info', ['inn' => $inn]);
+    }
 }
