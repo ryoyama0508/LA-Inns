@@ -1,9 +1,17 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<h1 class="uk-heading">宿検索</h1>
-<hr>
+<div class="uk-margin-small-left uk-margin-small-top uk-margin-remove-right uk-text-left">
+    <a class="uk-button uk-button-default" href="{{  }}">戻る</a>
+</div>
+<div>
+    <h1 class="uk-heading">宿検索</h1>
+</div>
+<div>
+
+</div>
 @endsection
+<hr>
 
 @section( 'tbody' )
 <form class="uk-search uk-search-default" id="inn_search">

@@ -11,19 +11,14 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
-    <style>
-        header{
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <header class="header">
+    <div class="uk-margin uk-child-width-expand@s" uk-grid>
         @yield( 'header' )
-    </header>
-    <tbody>
+    </div>
+
+    <div class="uk-margin">
         @yield( 'tbody' )
-    </tbody>
-    
+    </div>
 </body>
 </html>

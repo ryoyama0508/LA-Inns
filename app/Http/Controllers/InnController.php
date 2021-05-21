@@ -25,7 +25,7 @@ class InnController extends Controller
      */
     public function create()
     {
-        //
+        return view( 'inn_create' );
     }
 
     /**
