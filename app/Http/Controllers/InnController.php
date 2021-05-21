@@ -25,7 +25,8 @@ class InnController extends Controller
      */
     public function create()
     {
-        //
+        $inn = new Inn;
+        return view( 'inn_create');
     }
 
     /**
@@ -36,7 +37,15 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inn = new Inn;
+        $inn->name = $request->name;
+        $inn->address = $request->address;
+        $inn->rooms = $request->rooms;
+        $inn->checkin = $request->checkin;
+        $inn->checkout = $request->checkout;
+        $inn->pic_path = $request->pic_path;
+        $inn->save();
+        return redirect( route( 'inns.index' ) );
     }
 
     /**
@@ -58,7 +67,7 @@ class InnController extends Controller
      */
     public function edit(Inn $inn)
     {
-        return view( 'user_edit', [ 'user' => Inn::findOrFail($inn->id) ] );
+        return view( 'inn_edit', [ 'inn' => Inn::findOrFail($inn->id) ] );
     }
 
     /**
@@ -70,7 +79,11 @@ class InnController extends Controller
      */
     public function update(Request $request, Inn $inn)
     {
-        //
+        if( isset($request->name) ) $inn->name = $request->name;
+        if( isset($request->address) ) $inn->address = $request->address;
+        if( isset($request->rooms) ) $inn->rooms = $request->rooms;
+        $inn->save();
+        return redirect( route( 'inns.index' ) );
     }
 
     /**
