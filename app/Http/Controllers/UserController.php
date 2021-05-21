@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user_search');
+        return view('user_index');
     }
 
     /**
@@ -43,7 +44,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( User $user )
     {
         //
     }
@@ -56,19 +57,25 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find( $id );
+        return view( 'user_edit', [ 'user' => $user ] );
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $user = User::find( $id );
+        if( isset($request->name) ) $user->name = $request->name;
+        if( isset($request->email) ) $user->email = $request->email;
+        if( isset($request->password) ) $user->password = $request->password;
+        $user->save();
+        return redirect( route( 'users.index' ) );
     }
 
     /**
@@ -79,6 +86,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find( $id );
+        $user->delete();
+        return redirect( route( 'users.index' ) );
+    }
+
+    public function search( Request $request ){
+        $users = User::where( 'name', 'LIKE' , "%$request->name%" )->get();
+        return view( 'user_index', [ 'users' => $users ] );
     }
 }
