@@ -2,7 +2,7 @@
 
 @section( 'header' )
 <div>
-    <a class="uk-button uk-button-default" type="button" href="{{ route( 'inns.index' ) }}">宿検索に戻る</a>
+    <a href="{{ route( 'inns.index' ) }}">宿検索に戻る</a>
 </div>
 <div>
     <h1>宿新規登録</h1>
@@ -12,33 +12,32 @@
 <hr>
 
 @section( 'tbody' )
-<div class="uk-flex">
-    <div class="uk-container uk-margin-remove-right">
-        <span></span>
-    </div>  
-    <div class="uk-container uk-margin-remove-left">
-        <form action="{{ route( 'inn_create_confirm' ) }}" method="POST">
+<div>  
+    <div>
+        <form action="{{ route( 'inns.store' ) }}" method="POST">
             @csrf
-            <div class="uk-margin-top">
+            <div>
                 <label>宿名　<input class="uk-input" type="text" name="name"></label>
             </div>
-            <div class="uk-margin-top">
+            <div>
                 <label>住所　<input class="uk-input" type="text" name="address"></label>
             </div>
-            <div class="uk-margin-top">
+            <div>
                 <label>部屋数　<input class="uk-input" type="text" name="rooms"></label>
             </div>
-            <div class="uk-margin-top">
+            <div>
                 <label>チェックイン時間　<input class="uk-input" type="text" name="checkin"></label>
             </div>
-            <div class="uk-margin-top">
+            <div>
                 <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout"></label>
             </div>
-            <div class="uk-margin-top">
-                プラン
-                <a class="uk-button uk-button-default" type="buttton">プラン追加</a>
+            <div>
+                プラン<a href="">プラン追加</a>
             </div>
-            <button class="uk-button uk-button-default uk-margin-top" type="submit">登録</button>
+            <div>
+                画像<input id="image" type="file" name="pic_path">
+            </div>
+            <button type="submit">登録</button>
         </form>
     </div>
 </div>

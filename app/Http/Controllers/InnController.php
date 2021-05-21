@@ -26,18 +26,7 @@ class InnController extends Controller
     public function create()
     {
         $inn = new Inn;
-        return view( 'inn_create', [ 'inn' => $inn ] );
-    }
-
-    public function createConfirm( Request $request )
-    {
-        $inn = new Inn;
-        $inn->name = $request->name;
-        $inn->address = $request->address;
-        $inn->rooms = $request->rooms;
-        $inn->checkin = $request->checkin;
-        $inn->checkout = $request->checkout;
-        return view( 'inn_create_confirm', [ 'inn' => $inn ] );
+        return view( 'inn_create');
     }
 
     /**
@@ -48,8 +37,15 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
-        $inn = $request->inns()->create( $request->all() );
-        return view( 'inn_create_confirm', [ 'inn', $inn ] );
+        $inn = new Inn;
+        $inn->name = $request->name;
+        $inn->address = $request->address;
+        $inn->rooms = $request->rooms;
+        $inn->checkin = $request->checkin;
+        $inn->checkout = $request->checkout;
+        $inn->pic_path = $request->pic_path;
+        $inn->save();
+        return redirect( route( 'inns.index' ) );
     }
 
     /**
