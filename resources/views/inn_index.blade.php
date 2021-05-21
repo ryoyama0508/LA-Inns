@@ -7,7 +7,7 @@
 
 @section( 'tbody' )
 <form class="uk-search uk-search-default" action="{{ route( 'inn_search' ) }}" method="GET">
-    <input class="uk-search-input" type="search" name="name" placeholder="名前">
+    <input class="uk-search-input" type="search" name="name" placeholder="名前" value="{{ old('name') }}">
     <button type="submit" class="uk-search-icon-flip" uk-search-icon></button>
 </form>
 @foreach ($inns as $inn)
@@ -15,7 +15,7 @@
         <p>This is inn {{ $inn->name }}</p>
         <div class="uk-flex">
             <a class="uk-margin-left" href="{{ route( 'inns.edit', $inn->id ) }}">情報を変更する</a>
-            <a class="uk-margin-left" href="" onclick="deleteUser()">削除する</a>
+            <a class="uk-margin-left" href="" onclick="deleteInn()">削除する</a>
             <form action="{{ route( 'inns.destroy', $inn->id ) }}" method="POST" id="delete-form">
                 @csrf
                 @method( 'delete' )
