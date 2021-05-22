@@ -1,8 +1,9 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
+<a class="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a>
 <h1>宿検索</h1>
-<hr>
+<a class="button" href="{{ route( 'inns.create' ) }}">宿新規作成</a>
 @endsection
 <hr>
 
