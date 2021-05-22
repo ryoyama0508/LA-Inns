@@ -13,14 +13,17 @@
     <button type="submit"></button>
 </form>
 
-<div>
+<div class="user_card">
     @if( isset( $users ) )
     @foreach ( $users as $user )
-        <div>
-            <p>username {{ $user->name }}</p>
-            <div>
-                <a href="{{ route( 'users.edit', $user->id ) }}">情報を変更する</a>
-                <a href="" onclick="deleteUser({{ $user->id }})">削除する</a>
+        <div class="user_card_left"> icon </div>
+        <div class="user_card_right">
+            <div class="user_card_user">username {{ $user->name }}</div>
+            <div>email {{ $user->email }}</div>
+
+            <div class="btns">
+                <a href="{{ route( 'users.edit', $user->id ) }}" class="btn">情報を変更する</a>
+                <a href="" onclick="deleteUser({{ $user->id }})" class="btn">削除する</a>
                 <form action="{{ route( 'users.destroy', $user->id ) }}" method="POST" id="delete-form{{ $user->id }}">
                     @csrf
                     @method( 'delete' )

@@ -60,3 +60,53 @@ span{
     color         : #ffffff;     /* 背景色     */
     background    : #1b1919;     /* 文字色     */
   }
+
+
+  .user_card{
+    margin: 70px auto 0 ;
+    background-color: rgb(212, 209, 209);
+    width: 450px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user_card_right{
+    margin-left: 40px;
+  }
+
+  .user_card_left{
+   width: 150px;
+   height: 150px;
+   background-color: #ffffff;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+
+  a.btn {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px auto;
+  }
+  
+  a.btn:hover {
+    color: #fff;
+    background: #000;
+  }
+  
+  .btns{
+    margin-top: 43px;
+  }
+
+  .user_card_user{
+    margin-bottom: 15px;
+  }
