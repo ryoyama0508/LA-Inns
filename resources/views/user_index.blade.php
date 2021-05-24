@@ -1,16 +1,24 @@
 @extends('common.layout')
 
 @section('header')
-<a  type="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a>
-<h1 >会員検索</h1>
-<hr>
-@endsection
+<div class="title_bar">
+    <h1 id="home" class="title"><span>会員検索
+    
+    </span></h1>
+    <div class="title_link"><a id="back_home" type="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a></div>
+</div>
 
+
+
+@endsection
+<hr>
 @section('tbody')
 <form  action="{{ route( 'user_search' ) }}" method="GET">
     @csrf
-    <input  type="search" name="name" placeholder="名前" value="{{ old('name') }}">
-    <button type="submit"></button>
+    <div class="search_area">
+        <input id="search_bar" type="search" name="name" placeholder="名前" value="{{ old('name') }}">
+        <button id="search_button" type="submit">検索</button>
+    </div>
 </form>
 
 <div class="user_card">
