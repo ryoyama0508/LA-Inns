@@ -195,6 +195,34 @@ h1{
     margin-top: 43px;
   }
 
-  .user_card_user{
-    margin-bottom: 15px;
+  
+  #create_inns_button {
+    /* margin-top: 80px; */
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #ffffff;     /* 背景色     */
+    color         : #1b1919;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #3a2f2f;  /* 影の設定 */
+    border        : 2px solid #080808;    /* 枠の指定 */
+    margin-top: -20px;;
+  }
+
+  #create_inns_button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #ffffff;     /* 背景色     */
+    background    : #1b1919;     /* 文字色     */
+  }
+
+  #back_home.button{
+    /* margin-top: -13px;
+    margin-right: 1120px; */
+    margin-top: -13px;
+    margin-right: 1090;
+    
   }
