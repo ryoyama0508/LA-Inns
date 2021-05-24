@@ -19,8 +19,9 @@
 @section( 'tbody' )
 
 @foreach ($plans as $plan)
-    <p>プラン名:{{ $plan->contents }}</p>
-    <p>プラン名:{{ $plan->price }}</p>  
+    <p>プラン名:{{ $plan->name }}</p>
+    <p>内容:{{ $plan->content }}</p>
+    <p>値段:{{ $plan->price }}</p> 
 @endforeach
 
 

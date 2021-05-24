@@ -58,7 +58,7 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        //
+        return view('plan_edit', ['plan' =>Plan::findOrFail($plan->id)]);
     }
 
     /**
@@ -102,12 +102,17 @@ class PlanController extends Controller
         $plan = new Plan;
         if( isset($request->name) ) {
             $plan->name = $request->name;
+        }
+
+        if( isset($request->content) ) {
+            $plan->content = $request->content;
+        }
+
+        if( isset($request->price) ) {
             $plan->price = $request->price;
         }
-                } 
-        }
+
         $plans[] = $plan;
-        
         return view( 'plan_index', ['plans' => $plans]);
     }
 }

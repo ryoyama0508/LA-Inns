@@ -35,11 +35,15 @@
                 プラン
                 @if (isset($plans))
                     @foreach ($plans as $plan)
-                    <p>{{ $plan }}</p>
-                    <input type="hidden" name="plans[]" value="{{ $plan }}">    
+                    <?php $assocArrayPlan = json_decode($plan, true); ?>
+                    <p>プラン名：<?php echo $assocArrayPlan['name'];?></p>
+                    <p>内容：<?php echo $assocArrayPlan['content'];?></p>
+                    <p>値段：<?php echo $assocArrayPlan['price'];?></p>
+                    <input type="hidden" name="plans[]" value="{{ $plan }}">
+
+                    <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
                     @endforeach
                 @endif
-                <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
             </div>
             <div>
                 画像<input id="image" type="file" name="pic_path" value="{{ old('pic_path') }}">

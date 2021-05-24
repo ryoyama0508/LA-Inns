@@ -57,7 +57,8 @@ class InnController extends Controller
                     $plan = new Plan;
                     $plan->inn_id = $inn->id;
 
-                    $plan->contents = $assocArrayPlan['name'];
+                    $plan->name = $assocArrayPlan['name'];
+                    $plan->content = $assocArrayPlan['content'];
                     $plan->price = $assocArrayPlan['price'];
                     
                     $plan->save();

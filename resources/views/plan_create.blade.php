@@ -12,13 +12,22 @@
 @section( 'tbody' )
 <form action="{{ route('append') }}" method="POST">
     @csrf
-    <p>
-        <label for="name">プラン名</label>
-        <input type="text" name="name">
+    <div>
+        <div>
+        <label for="name">プラン名
+        <input type="text" name="name"></label>
+        </div>
 
-        <label for="name">値段</label>
-        <input type="text" name="price">
-    </p>
+        <div>
+        <label for="name">内容
+        <input type="text" name="content"></label>
+        </div>
+
+        <div>
+        <label for="name">値段
+        <input type="text" name="price"></label>
+        </div>
+    </div>
 
     @foreach ($plans as $plan)
     <input type="hidden" name="plans[]" value="{{ $plan }}">    
