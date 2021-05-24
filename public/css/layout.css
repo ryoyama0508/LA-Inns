@@ -73,6 +73,28 @@ h1{
     background    : #1b1919;     /* 文字色     */
   }
 
+#back_home{
+    font-size: 20px;
+   
+}
+
+  .search_area{
+    display: table;
+    margin: 70px auto;
+  }
+
+ #search_bar{
+    height: 48px;
+    width: 465px;
+    font-size: 30px;
+ }
+
+
+  #search_button{
+    height: 48px;
+    width: 80px;
+    font-size: 29px;
+  }
   .user_search_result{
     margin: 96px 470px;
   }
@@ -144,15 +166,21 @@ h1{
     font-size: 29px;
   }
 
-  .user_card{
+  .user_card_container{
     margin: 70px auto 0 ;
     background-color: rgb(212, 209, 209);
     width: 450px;
-    height: 250px;
+   
+    
+  }
+
+  .user_card{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 250px;
   }
+
 
   .user_card_right{
     margin-left: 40px;
