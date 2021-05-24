@@ -2,7 +2,14 @@
 
 @section( 'header' )
 <div>
-    <a href="{{ route( 'inns.create' ) }}">新規作成画面に戻る</a>
+    <form action="{{ route('back_to_inn_from_plan') }}" method="POST" id="my_form">
+        @csrf
+        
+        @foreach ($plans as $plan)
+            <input type="hidden" name="plans[]" value="{{ $plan }}">    
+        @endforeach
+        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">新規作成画面に戻る</a>
+    </form>
 </div>
 <div>
     <h1>プラン一覧</h1>

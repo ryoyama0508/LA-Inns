@@ -17,25 +17,32 @@
         <form action="{{ route( 'inns.store' ) }}" method="POST">
             @csrf
             <div>
-                <label>宿名　<input class="uk-input" type="text" name="name"></label>
+                <label>宿名　<input class="uk-input" type="text" name="name" value="{{ old('name') }}"></label>
             </div>
             <div>
-                <label>住所　<input class="uk-input" type="text" name="address"></label>
+                <label>住所　<input class="uk-input" type="text" name="address" value="{{ old('address') }}"></label>
             </div>
             <div>
-                <label>部屋数　<input class="uk-input" type="text" name="rooms"></label>
+                <label>部屋数　<input class="uk-input" type="text" name="rooms" value="{{ old('rooms') }}"></label>
             </div>
             <div>
-                <label>チェックイン時間　<input class="uk-input" type="text" name="checkin"></label>
+                <label>チェックイン時間　<input class="uk-input" type="text" name="checkin" value="{{ old('checkin') }}"></label>
             </div>
             <div>
-                <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout"></label>
+                <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout" value="{{ old('checkout') }}"></label>
             </div>
             <div>
-                プラン<a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
+                プラン
+                @if (isset($plans))
+                    @foreach ($plans as $plan)
+                    <p>{{ $plan }}</p>
+                    <input type="hidden" name="plans[]" value="{{ $plan }}">    
+                    @endforeach
+                @endif
+                <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
             </div>
             <div>
-                画像<input id="image" type="file" name="pic_path">
+                画像<input id="image" type="file" name="pic_path" value="{{ old('pic_path') }}">
             </div>
             <button type="submit">登録</button>
         </form>

@@ -34,7 +34,7 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $inn_id)
     {
         //
     }
@@ -87,6 +87,7 @@ class PlanController extends Controller
     public function createOnePlan(Request $request){
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
+            
             return view('plan_create', ['plans' => $plans]);
         }else{
             return view('plan_create', ['plans'=>[]]);
@@ -97,16 +98,12 @@ class PlanController extends Controller
         $plans = array();
         if (isset($request->all()['plans'])){
             $plans = $request->all()['plans'];
-            foreach ($plans as $tmp_plan) {
-                $plan = new Plan;
-                if( isset($tmp_plan->name) ){
-                    $plan->name = $tmp_plan->name;
-                    $plans[] = $plan;
-                } 
-            }
         }
         $plan = new Plan;
-        if( isset($request->name) ) $plan->name = $request->name;
+        if( isset($request->name) ) {
+            $plan->name = $request->name;
+            $plan->price = $request->price;
+        }
         $plans[] = $plan;
         
         return view( 'plan_index', ['plans' => $plans]);

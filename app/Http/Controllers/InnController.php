@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inn;
+use App\Plan;
 use Illuminate\Http\Request;
 use DB;
 
@@ -26,7 +27,7 @@ class InnController extends Controller
     public function create()
     {
         $inn = new Inn;
-        return view( 'inn_create');
+        return view('inn_create');
     }
 
     /**
@@ -45,6 +46,24 @@ class InnController extends Controller
         $inn->checkout = $request->checkout;
         $inn->pic_path = $request->pic_path;
         $inn->save();
+
+        
+        if( isset($request->all()['plans']) ){
+            $plans = $request->all()['plans'];
+            
+            if (isset($plans)){
+                foreach ($plans as $tmp_plan) {
+                    $assocArrayPlan = json_decode($tmp_plan, true);
+                    $plan = new Plan;
+                    $plan->inn_id = $inn->id;
+
+                    $plan->contents = $assocArrayPlan['name'];
+                    $plan->price = $assocArrayPlan['price'];
+                    
+                    $plan->save();
+                }
+            }
+        }
         return redirect( route( 'inns.index' ) );
     }
 
@@ -107,5 +126,14 @@ class InnController extends Controller
     public function changeInfo(Inn $inn){
         $inn = Inn::where('id','=', "$inn->id")->get();
         return view('inn_change_info', ['inn' => $inn]);
+    }
+
+    public function backFromPlanCreate(Request $request){
+        if( isset($request->all()['plans']) ){
+            $plans = $request->all()['plans'];
+            return view('inn_create', ['plans' => $plans]);
+        }else{
+            return view('inn_create', []);
+        }
     }
 }

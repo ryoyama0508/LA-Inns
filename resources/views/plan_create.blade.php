@@ -13,8 +13,11 @@
 <form action="{{ route('append') }}" method="POST">
     @csrf
     <p>
-        <label for="name">名前</label>
+        <label for="name">プラン名</label>
         <input type="text" name="name">
+
+        <label for="name">値段</label>
+        <input type="text" name="price">
     </p>
 
     @foreach ($plans as $plan)
