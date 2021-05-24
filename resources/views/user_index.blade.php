@@ -21,9 +21,10 @@
     </div>
 </form>
 
-<div class="user_card">
+<div class="user_card_container">
     @if( isset( $users ) )
     @foreach ( $users as $user )
+    <div class="user_card">
         <div class="user_card_left"> icon </div>
         <div class="user_card_right">
             <div class="user_card_user">username {{ $user->name }}</div>
@@ -38,6 +39,7 @@
                 </form>
             </div>
         </div>
+    </div>
     @endforeach
     <script type="text/javascript">
         function deleteUser(id){

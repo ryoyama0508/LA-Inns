@@ -75,6 +75,74 @@ h1{
 
 #back_home{
     font-size: 20px;
+   
+}
+
+  .search_area{
+    display: table;
+    margin: 70px auto;
+  }
+
+ #search_bar{
+    height: 48px;
+    width: 465px;
+    font-size: 30px;
+ }
+
+
+  #search_button{
+    height: 48px;
+    width: 80px;
+    font-size: 29px;
+  }
+  .user_search_result{
+    margin: 96px 470px;
+  }
+
+  .user_search_result_bar{
+    font-size: 21px;
+  }
+
+  #user_result_label{
+    font-size: 21px;
+  }
+
+  #user_search_result_bar{
+    font-size: 19px;
+  }
+
+  .edit_btn{
+    margin: 25px 130px;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+
+  #edit_btn{
+    background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+        font-size: 23px;
+  }
+  
+  #edit_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+  
+#back_home{
+    font-size: 20px;
     /* position: relative;
     left: 800px;
     top: 45px; */
@@ -98,15 +166,21 @@ h1{
     font-size: 29px;
   }
 
-  .user_card{
+  .user_card_container{
     margin: 70px auto 0 ;
     background-color: rgb(212, 209, 209);
     width: 450px;
-    height: 250px;
+   
+    
+  }
+
+  .user_card{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 250px;
   }
+
 
   .user_card_right{
     margin-left: 40px;
