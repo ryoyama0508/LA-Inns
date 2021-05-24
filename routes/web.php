@@ -23,3 +23,6 @@ Route::get( 'userSearch', 'UserController@search' )->name( 'user_search' );
 Route::resource( 'plans', 'PlanController' );
 Route::post( 'planOneCreate', 'PlanController@createOnePlan' )->name( 'createOnePlan' );
 Route::post( 'planAppend', 'PlanController@append' )->name( 'append' );
+
+Route::post( 'planCreateFromEditInn', 'PlanController@createPlanFromEditInn' )->name( 'create_plan_from_edit_inn' );
+Route::post( 'planAppendFromEditInn', 'PlanController@appendFromEditInn' )->name( 'append_from_edit_inn' );
