@@ -2,7 +2,14 @@
 
 @section( 'header' )
 <div>
-    <a href="{{ route( 'inns.create' ) }}">新規作成画面に戻る</a>
+    <form action="{{ route('back_to_inn_from_plan') }}" method="POST" id="my_form">
+        @csrf
+        
+        @foreach ($plans as $plan)
+            <input type="hidden" name="plans[]" value="{{ $plan }}">    
+        @endforeach
+        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">新規作成画面に戻る</a>
+    </form>
 </div>
 <div>
     <h1>プラン一覧</h1>
@@ -10,5 +17,20 @@
 @endsection
 
 @section( 'tbody' )
-<a class="button" href="">追加</a>
+
+@foreach ($plans as $plan)
+    <p>プラン名:{{ $plan->name }}</p>
+    <p>内容:{{ $plan->content }}</p>
+    <p>値段:{{ $plan->price }}</p> 
+@endforeach
+
+
+<form action="{{ route('createOnePlan') }}" method="POST">
+    @csrf
+    
+    @foreach ($plans as $plan)
+        <input type="hidden" name="plans[]" value="{{ $plan }}">    
+    @endforeach
+    <input type="submit" value="追加">
+</form>
 @endsection

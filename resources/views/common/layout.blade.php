@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
 </head>
 <body>
-    <div> 
+     
         @yield( 'header' )
-    </div>
+    
 
     <div>
         @yield( 'tbody' ) 
