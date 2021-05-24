@@ -3,7 +3,7 @@
 @section('header')
 <div class="title_bar">
     <h1 id="home" class="title"><span>会員検索
-    
+
     </span></h1>
     <div class="title_link"><a id="back_home" type="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a></div>
 </div>
