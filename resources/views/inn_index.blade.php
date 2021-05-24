@@ -8,10 +8,12 @@
 <hr>
 
 @section( 'tbody' )
-<form action="{{ route( 'inn_search' ) }}" method="GET">
-    <input  type="search" name="name" placeholder="名前" value="{{ old('name') }}">
-    <button type="submit"></button>
+
+<form id="sarch_area_Inns" action="{{ route( 'inn_search' ) }}" method="GET">
+     <input id="search_bar_inns" type="search" name="name" placeholder="名前" value="{{ old('name') }}">
+     <button id="search_button_inns"type="submit">検索</button>
 </form>
+
 @foreach ($inns as $inn)
     <div>
         <p>This is inn {{ $inn->name }}</p>

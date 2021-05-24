@@ -34,7 +34,7 @@ span{
     position: relative;
     padding: 1rem 2rem;
     border-bottom: 6px solid rgb(98, 187, 138);
-    font-color:rgb(83, 63, 58);
+    color:rgb(83, 63, 58);
     
 } 
 
@@ -59,4 +59,23 @@ span{
     box-shadow    : none;        /* カーソル時の影消去 */
     color         : #ffffff;     /* 背景色     */
     background    : #1b1919;     /* 文字色     */
+  }
+
+
+
+  #search_area_inns{
+
+  }
+
+  #search_bar_inns{
+    height: 48px;
+    width: 465px;
+    font-size: 30px;
+ }
+
+
+  #search_button_inns{
+    height: 48px;
+    width: 80px;
+    font-size: 29px;
   }
