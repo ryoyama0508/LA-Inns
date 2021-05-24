@@ -40,10 +40,9 @@
                     <p>内容：<?php echo $assocArrayPlan['content'];?></p>
                     <p>値段：<?php echo $assocArrayPlan['price'];?></p>
                     <input type="hidden" name="plans[]" value="{{ $plan }}">
-
-                    <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
                     @endforeach
                 @endif
+                <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
             </div>
             <div>
                 画像<input id="image" type="file" name="pic_path" value="{{ old('pic_path') }}">
