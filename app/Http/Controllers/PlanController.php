@@ -34,7 +34,7 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $inn_id)
+    public function store(Request $request)
     {
         //
     }
@@ -103,6 +103,8 @@ class PlanController extends Controller
         if( isset($request->name) ) {
             $plan->name = $request->name;
             $plan->price = $request->price;
+        }
+                } 
         }
         $plans[] = $plan;
         
