@@ -33,7 +33,7 @@
             <label for="name">プラン</label>
             <div id="plan_cards">
                 @foreach ($plans as $plan)
-                    <div id="{{ $plan->id }}card">
+                    <div id="{{ $plan->id }}">
                     <p>プラン名:{{ $plan->name }}</p>
                     <p>内容:{{ $plan->content }}</p>
                     <p>値段:{{ $plan->price }}</p>
