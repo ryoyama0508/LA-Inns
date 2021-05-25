@@ -25,7 +25,7 @@
     @foreach ($inns as $inn)
         <div class="inn_card">
             <div id="inn_name"><p>{{ $inn->name }}</p></div>
-            <div class="inn_card_left"> <img src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture"> </div>
+            <div class="inn_card_left"> <img id="inn_img" src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture"> </div>
             <div class="inn_card_right">
                 <div class="inn_card_font">
                     <p>

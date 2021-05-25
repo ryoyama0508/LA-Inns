@@ -21,11 +21,11 @@
         @csrf
         @method( 'put' )
         <p id="search_result_label">
-            <img src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
+            <img  id="inn_img_edit" src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
         </p>
 
         <p>
-            画像を変更する<input id="image" type="file" name="image" value="{{ old('image') }}">
+            画像を変更する<input  type="file" name="image" value="{{ old('image') }}">
         </p>
         
         <p>
