@@ -138,12 +138,12 @@ class PlanController extends Controller
     public function createPlanFromEditInn(Request $request)
     {
         $inn = $request->all()['inn'];
+
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
-            
-            
             return view('plan_create_from_inn_edit',['inn' => $inn], ['plans' => $plans]);
         }else{
+
             return view('plan_create_from_inn_edit',['inn' => $inn], ['plans'=>[]]);
         }
     }

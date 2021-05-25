@@ -24,8 +24,8 @@
 @if( isset( $inns ) )
     @foreach ($inns as $inn)
         <div class="inn_card">
-            <div id="inn_name"><p>This is inn {{ $inn->name }}</p></div>
-            <div class="inn_card_left"> icon </div>
+            <div id="inn_name"><p>{{ $inn->name }}</p></div>
+            <div class="inn_card_left"> <img src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture"> </div>
             <div class="inn_card_right">
                 <div class="inn_card_font">
                     <p>

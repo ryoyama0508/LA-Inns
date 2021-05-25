@@ -14,7 +14,7 @@
 @section( 'tbody' )
 <div>  
     <div>
-        <form action="{{ route( 'inns.store' ) }}" method="POST">
+        <form action="{{ route( 'inns.store' ) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
                 <label>宿名　<input class="uk-input" type="text" name="name" value="{{ old('name') }}"></label>
@@ -45,7 +45,7 @@
                 <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
             </div>
             <div>
-                画像<input id="image" type="file" name="pic_path" value="{{ old('pic_path') }}">
+                画像<input id="image" type="file" name="image" value="{{ old('image') }}">
             </div>
             <button type="submit">登録</button>
         </form>
