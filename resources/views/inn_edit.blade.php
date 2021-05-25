@@ -15,7 +15,7 @@
         @csrf
         @method( 'put' )
         <p>
-            <img src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
+            <img src="data:image/png;base64,{{ $inn->pic_path }}" alt="inn picture">
         </p>
 
         <p>
