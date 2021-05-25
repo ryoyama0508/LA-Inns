@@ -1,8 +1,13 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<a class="uk-button uk-button-default" type="button" href="{{ route( 'inns.index' ) }}">戻る</a>
-<h1 class="uk-heading">宿情報変更</h1>
+<div class="title_bar">
+    <h1 id="home" class="title"><span>宿情報変更
+
+    </span></h1>
+    <div class="title_link"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">戻る</a>
+</div>
+
 <hr>
 @endsection
 
@@ -10,38 +15,38 @@
 <div>
     {{-- user_icon --}}
 </div>
-<div>
+<div class="search_result">
     <form action="{{ route( 'inns.update', $inn ) }}" method="POST">
         @csrf
         @method( 'put' )
-        <p>
+        <p id="search_result_label">
             <label for="name">名前</label>
-            <input class="uk-input uk-form-width-medium" type="text" name="name" value="{{ $inn->name }}">
+            <input id="search_result_bar" type="text" name="name" value="{{ $inn->name }}">
         </p>
         
-        <p>
+        <p id="search_result_label">
             <label for="email">住所</label>
-            <input class="uk-input uk-form-width-medium" type="text" name="address" value="{{ $inn->address }}">
+            <input id="search_result_bar" type="text" name="address" value="{{ $inn->address }}">
         </p>
         
-        <p>
+        <p id="search_result_label">
             <label for="name">部屋数</label>
-            <input type="number" step="1" pattern="\d+" name="rooms" value="{{ $inn->rooms }}">
+            <input id="search_result_bar" type="number" step="1" pattern="\d+" name="rooms" value="{{ $inn->rooms }}">
         </p>
         
 
-        <p>
+        <p id="search_result_label">
             <label for="name">チェックイン</label>
-            <input type="text" name="checkin_date">
+            <input id="search_result_bar" type="text" name="checkin_date">
         </p>
         
-        <p>
+        <p id="search_result_label">
             <label for="name">チェックアウト</label>
-            <input type="text" name="checkout_date">
+            <input id="search_result_bar" type="text" name="checkout_date">
         </p>
        
 
-        <p>
+        <p id="search_result_label">
             <label for="name">プラン</label>
             <div id="plan_cards">
                 @foreach ($plans as $plan)
@@ -56,9 +61,9 @@
                 @endforeach
             </div>
         </p>
-
-        <button type="submit" class="uk-button uk-button-default">変更する</button>
-    </form>
+    <div class="inn_edit_btns">
+        <div class="inn_edit_btn"><button type="submit" id="inn_edit_btn">変更する</button></div>
+    </div></form>
 
     <form action="{{ route( 'create_plan_from_edit_inn' ) }}" method="POST" id="plan_create_form">
         @csrf
@@ -67,8 +72,9 @@
             <input type="hidden" name="plans[]" value="{{ $plan }}">
         @endforeach
             
-        <button type="submit" class="uk-button uk-button-default">プランを追加する</button>
+        <div class="inn_edit_plan_btn"><button type="submit" id="inn_edit_plan_btn">プランを追加する</button></div>
     </form>
+
 </div>
 
 <script>
