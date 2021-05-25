@@ -33,11 +33,12 @@
             <div class="btns">
                 <a href="{{ route( 'users.edit', $user->id ) }}" class="btn">情報を変更する</a>
                 <a href="" onclick="deleteUser({{ $user->id }})" class="btn">削除する</a>
+            </div>
                 <form action="{{ route( 'users.destroy', $user->id ) }}" method="POST" id="delete-form{{ $user->id }}">
                     @csrf
                     @method( 'delete' )
-                </form>
-            </div>
+               </form>
+            
         </div>
     </div>
     @endforeach

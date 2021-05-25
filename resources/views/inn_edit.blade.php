@@ -28,6 +28,18 @@
             <label for="name">部屋数</label>
             <input type="number" step="1" pattern="\d+" name="rooms" value="{{ $inn->rooms }}">
         </p>
+        
+
+        <p>
+            <label for="name">チェックイン</label>
+            <input type="text" name="checkin_date">
+        </p>
+        
+        <p>
+            <label for="name">チェックアウト</label>
+            <input type="text" name="checkout_date">
+        </p>
+       
 
         <p>
             <label for="name">プラン</label>
