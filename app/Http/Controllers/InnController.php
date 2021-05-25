@@ -39,22 +39,15 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
-        $path = '';
-        $image = $request->file('image'); 
-        if( isset($image) === true ){
-            $path = $image->store('photos', 'public'); 
-        }
-
         $inn = new Inn;
         $inn->name = $request->name;
         $inn->address = $request->address;
         $inn->rooms = $request->rooms;
         $inn->checkin = $request->checkin;
         $inn->checkout = $request->checkout;
-        $inn->pic_path = $path;
+        $inn->pic_path = base64_encode(file_get_contents($request->image));
         $inn->save();
 
-        
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
             
@@ -108,8 +101,8 @@ class InnController extends Controller
     {
         $path = '';
         $image = $request->file('image'); 
-        if( isset($image) === true ){// 新しい写真を追加したから
-            if( isset($inn->pic_path) ){// 以前の写真を消す
+        if( isset($image) === true ){// 新しい写真を追加してある場合、
+            if( isset($inn->pic_path) ){// 以前の写真を消すようにする
                 if(File::exists($inn->pic_path)) {
                     File::delete($inn->pic_path);
                 }

@@ -25,7 +25,7 @@
     @foreach ($inns as $inn)
         <div class="inn_card">
             <div id="inn_name"><p>{{ $inn->name }}</p></div>
-            <div class="inn_card_left"> <img id="inn_img" src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture"> </div>
+            <div class="inn_card_left"> <img id="inn_img" src="data:image/png;base64,{{ $inn->pic_path }}" alt="inn picture"> </div>
             <div class="inn_card_right">
                 <div class="inn_card_font">
                     <p>
@@ -41,16 +41,15 @@
                         チェックイン時間  {{ $inn->checkout }}
                     </p>
                     
-
-                        <div class="btns">
-                            <a class="btn_inns_search" href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
-                            <a class="btn_inns_search" href="" onclick="deleteInn({{ $inn->id }})">削除する</a>
-                        </div>
+                    <div class="btns">
+                        <a class="btn_inns_search" href="{{ route( 'inns.edit', $inn ) }}">情報を変更する</a>
+                        <a class="btn_inns_search" href="" onclick="deleteInn({{ $inn->id }})">削除する</a>
+                    </div>
                 </div>
 
                 <form action="{{ route( 'inns.destroy', $inn ) }}" method="POST" id="delete-form{{ $inn->id }}">
-                @csrf
-                @method( 'delete' )
+                    @csrf
+                    @method( 'delete' )
                 </form>
             </div>
         </div>

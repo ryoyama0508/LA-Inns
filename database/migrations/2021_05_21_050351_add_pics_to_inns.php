@@ -14,8 +14,8 @@ class AddPicsToInns extends Migration
     public function up()
     {
         Schema::table('inns', function (Blueprint $table) {
-            $table->string('pic_path')->nullable();
         });
+        DB::statement("ALTER TABLE inns ADD pic_path MEDIUMBLOB");
     }
 
     /**
