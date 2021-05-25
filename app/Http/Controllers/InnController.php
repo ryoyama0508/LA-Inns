@@ -38,13 +38,19 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
+        $path = '';
+        $image = $request->file('image'); 
+        if( isset($image) === true ){
+            $path = $image->store('photos', 'public'); 
+        }
+
         $inn = new Inn;
         $inn->name = $request->name;
         $inn->address = $request->address;
         $inn->rooms = $request->rooms;
         $inn->checkin = $request->checkin;
         $inn->checkout = $request->checkout;
-        $inn->pic_path = $request->pic_path;
+        $inn->pic_path = $path;
         $inn->save();
 
         
@@ -63,6 +69,7 @@ class InnController extends Controller
                 $plan->save();
             }
         }
+        
         return redirect( route( 'inns.index' ) );
     }
 
