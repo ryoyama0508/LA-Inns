@@ -141,37 +141,70 @@ h1{
   background: #000;
   }
   
-#back_home{
+  #back_home{
     font-size: 20px;
     /* position: relative;
     left: 800px;
     top: 45px; */
 }
 
-  .search_area{
-    display: table;
-    margin: 70px auto;
-  }
 
- #search_bar{
-    height: 48px;
-    width: 465px;
+
+
+  #inn_name{
     font-size: 30px;
- }
-
-
-  #search_button{
-    height: 48px;
-    width: 80px;
-    font-size: 29px;
+    padding: 1px 230px 1px
+    }
+  
+  .inn_card_container{
+    margin: 77px auto 0 ;
+    /* background-color: rgb(212, 209, 209); */
+    width: 755px;
+    height: 485px;
+    
   }
+
+  /* .inn_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    font-size: 23px;
+    width: 655px;
+    height: 462px;
+    margin: 0 -67px 0 -75px;
+    background-color: rgb(212, 209, 209);
+  } */
+
+  .inn_card{
+    background-color: rgb(212, 209, 209);
+  }
+
+  .inn_card_right{
+    margin-left: 190px;
+  }
+
+  .inn_card_left{
+    width: 204px;
+    height: 185px;
+   background-color: #ffffff;
+   border-radius: 8%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 21px
+  }
+
+  .inn_card_font{
+    font-size: 21px;
+    margin-top: -188px;
+    margin-left: 80px;
+}
+  
 
   .user_card_container{
     margin: 70px auto 0 ;
-    background-color: rgb(212, 209, 209);
     width: 450px;
-   
-    
   }
 
   .user_card{
@@ -179,8 +212,10 @@ h1{
     justify-content: center;
     align-items: center;
     height: 250px;
-  }
-
+    margin-bottom: 10px;
+    background-color: rgb(212, 209, 209);
+}
+  
 
   .user_card_right{
     margin-left: 40px;
@@ -196,8 +231,7 @@ h1{
    align-items: center;
   }
 
-
-  a.btn {
+  .btn {
     border: 2px solid #000;
     border-radius: 0;
     background: #fff;
@@ -208,13 +242,14 @@ h1{
     margin: 10px auto;
   }
   
-  a.btn:hover {
+  .btn:hover {
     color: #fff;
     background: #000;
   }
   
   .btns{
-    margin-top: 43px;
+    margin-top: 40px;
+    padding-bottom: 10px;
   }
 
   
@@ -247,4 +282,20 @@ h1{
     margin-top: -13px;
     margin-right: 1090;
     
+  }
+
+  .btn_inns_search {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 65px;
+  }
+  
+  .btn_inns_search:hover {
+    color: #fff;
+    background: #000;
   }
