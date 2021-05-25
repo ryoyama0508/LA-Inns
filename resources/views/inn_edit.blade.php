@@ -11,9 +11,17 @@
     {{-- user_icon --}}
 </div>
 <div>
-    <form action="{{ route( 'inns.update', $inn ) }}" method="POST">
+    <form action="{{ route( 'inns.update', $inn ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method( 'put' )
+        <p>
+            <img src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
+        </p>
+
+        <p>
+            画像を変更する<input id="image" type="file" name="image" value="{{ old('image') }}">
+        </p>
+        
         <p>
             <label for="name">名前</label>
             <input class="uk-input uk-form-width-medium" type="text" name="name" value="{{ $inn->name }}">
@@ -45,14 +53,14 @@
             <label for="name">プラン</label>
             <div id="plan_cards">
                 @foreach ($plans as $plan)
-                    <div id="{{ $plan->id }}">
+                    <div id="{{ $plan->id }}card">
                     <p>プラン名:{{ $plan->name }}</p>
                     <p>内容:{{ $plan->content }}</p>
                     <p>値段:{{ $plan->price }}</p>
                     <input type="button" onclick="deletePlan( {{ $plan->id }} )" value="削除する">
                     </div>
 
-                    <input type="hidden" id="{{ $plan->id }}" name="plans[]" value="{{ $plan }}">
+                    <input type="hidden" id="{{ $plan->id }}input" name="plans[]" value="{{ $plan }}">
                 @endforeach
             </div>
         </p>

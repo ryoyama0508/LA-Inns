@@ -2,7 +2,8 @@
 
 @section( 'header' )
 <div>
-    <a href="{{ route( 'inns.index' ) }}">宿検索画面に戻る</a>
+    <?php $assocArrayInn = json_decode($inn, true);?>
+    <a href="{{ route( 'inns.edit' ,$assocArrayInn['id']) }}">宿編集画面に戻る</a>
 </div>
 <div>
     <h1>プラン追加</h1>

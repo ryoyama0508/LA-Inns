@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Inn;
 use App\Plan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use DB;
 
@@ -105,6 +106,24 @@ class InnController extends Controller
      */
     public function update(Request $request, Inn $inn)
     {
+        $path = '';
+        $image = $request->file('image'); 
+        if( isset($image) === true ){// 新しい写真を追加したから
+            if( isset($inn->pic_path) ){// 以前の写真を消す
+                if(File::exists($inn->pic_path)) {
+                    File::delete($inn->pic_path);
+                }
+            }
+            $path = $image->store('photos', 'public');
+            $inn->pic_path = $path;
+        }
+
+        if( isset($inn->pic_path) ){
+            if(File::exists($inn->pic_path)) {
+                File::delete($inn->pic_path);
+            }
+        }
+
         if( isset($request->name) ) $inn->name = $request->name;
         if( isset($request->address) ) $inn->address = $request->address;
         if( isset($request->rooms) ) $inn->rooms = $request->rooms;
@@ -129,9 +148,6 @@ class InnController extends Controller
                 $plan->save();
             }
         }
-
-        
-
         return redirect( route( 'inns.index' ) );
     }
 
@@ -148,17 +164,20 @@ class InnController extends Controller
     }
 
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $inns = Inn::where('name','LIKE', "%$request->name%")->get();
         return view('inn_index', ['inns' => $inns]);
     }
 
-    public function changeInfo(Inn $inn){
+    public function changeInfo(Inn $inn)
+    {
         $inn = Inn::where('id','=', "$inn->id")->get();
         return view('inn_change_info', ['inn' => $inn]);
     }
 
-    public function backFromPlanCreate(Request $request){
+    public function backFromPlanCreate(Request $request)
+    {
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
             return view('inn_create', ['plans' => $plans]);
@@ -166,5 +185,4 @@ class InnController extends Controller
             return view('inn_create', []);
         }
     }
-
 }

@@ -7,7 +7,7 @@
         @foreach ($plans as $plan)
             <input type="hidden" name="plans[]" value="{{ $plan }}" id="{{ $plan->name }}form">
         @endforeach
-        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">新規作成画面に戻る</a>
+        <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">プランを確定して新規作成画面に戻る</a>
     </form>
 </div>
 <div>
