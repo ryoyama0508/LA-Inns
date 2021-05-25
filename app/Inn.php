@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inn extends Model
 {
+    protected $fillable = ['pic_path']; 
+
     public function reviews(){
         return $this->hasMany(Review::class);
     }

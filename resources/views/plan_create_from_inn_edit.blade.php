@@ -2,11 +2,16 @@
 
 @section( 'header' )
 <div class="title_bar">
-    <h1 id="home" class="title"><span>プラン追加
-    </span></h1>
-    <div class="title_link"><a  id="back_home" class="button"  href="{{ route( 'inns.index' ) }}">宿検索画面に戻る</a>
-
+    <h1 id="home" class="title">
+        <span>プラン追加</span>
+    </h1>
 </div>
+
+<div>
+    <?php $assocArrayInn = json_decode($inn, true);?>
+    <div class="title_link"><a id="back_home"  type="button" href="{{ route( 'inns.edit' ,$assocArrayInn['id']) }}">宿編集画面に戻る</a>
+</div>
+
 @endsection
 
 @section( 'tbody' )
