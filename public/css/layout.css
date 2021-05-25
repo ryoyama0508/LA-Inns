@@ -87,7 +87,8 @@ h1{
     height: 48px;
     width: 465px;
     font-size: 30px;
- }
+}
+ 
 
 
   #search_button{
@@ -364,5 +365,5 @@ h1{
 
   #plan_create_form{
     position: absolute;
-    
+
   }

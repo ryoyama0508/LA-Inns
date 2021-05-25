@@ -1,8 +1,11 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<div>
-    <a href="{{ route( 'plans.index' ) }}">新規作成画面に戻る</a>
+<div class="title_bar">
+    <h1 id="home" class="title"><span>プラン追加
+
+    </span></h1>
+    <div class="title_link"><a id="back_home" class="button" href="{{ route( 'plans.index' ) }}">新規作成画面に戻る</a>
 </div>
 <div>
     <h1>プラン追加</h1>
