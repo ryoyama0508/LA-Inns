@@ -1,35 +1,35 @@
 @extends( 'common.layout' )
 
 @section( 'header' )
-<div>
-    <a href="{{ route( 'inns.index' ) }}">宿検索に戻る</a>
+<div class="title_bar">
+    <h1 id="home" class="title"><span>宿新規登録</span></h1>
+    <div class="title_link"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">宿検索に戻る</a></div>
+
 </div>
-<div>
-    <h1>宿新規登録</h1>
-</div>
+
 <div></div>
 @endsection
 <hr>
 
 @section( 'tbody' )
-<div>  
-    <div>
-        <form action="{{ route( 'inns.store' ) }}" method="POST" enctype="multipart/form-data">
+<div class="search_result">
+
+    <form action="{{ route( 'inns.store' ) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div>
-                <label>宿名　<input class="uk-input" type="text" name="name" value="{{ old('name') }}"></label>
+            <div id="search_result_label">
+                <label>宿名　<input id="search_result_bar" type="text" name="name" value="{{ old('name') }}"></label>
             </div>
-            <div>
-                <label>住所　<input class="uk-input" type="text" name="address" value="{{ old('address') }}"></label>
+            <div id="search_result_label">
+                <label>住所　<input id="search_result_bar" type="text" name="address" value="{{ old('address') }}"></label>
             </div>
-            <div>
-                <label>部屋数　<input class="uk-input" type="text" name="rooms" value="{{ old('rooms') }}"></label>
+            <div id="search_result_label">
+                <label>部屋数　<input id="search_result_bar" type="text" name="rooms" value="{{ old('rooms') }}"></label>
             </div>
-            <div>
-                <label>チェックイン時間　<input class="uk-input" type="text" name="checkin" value="{{ old('checkin') }}"></label>
+            <div id="search_result_label">
+                <label>チェックイン時間　<input id="search_result_bar" type="text" name="checkin" value="{{ old('checkin') }}"></label>
             </div>
-            <div>
-                <label>チェックアウト時間　<input class="uk-input" type="text" name="checkout" value="{{ old('checkout') }}"></label>
+            <div id="search_result_label">
+                <label>チェックアウト時間　<input id="search_result_bar" type="text" name="checkout" value="{{ old('checkout') }}"></label>
             </div>
             <div>
                 プラン
@@ -42,13 +42,13 @@
                     <input type="hidden" name="plans[]" value="{{ $plan }}">
                     @endforeach
                 @endif
-                <a class="button" href="{{ route( 'plans.index' ) }}">プラン追加</a>
+                <div class="inn_edit_btn"><a id="inn_edit_btn" href="{{ route( 'plans.index' ) }}">プラン追加</a></div>
             </div>
             <div>
                 画像<input id="image" type="file" name="image" value="{{ old('image') }}">
             </div>
-            <button type="submit">登録</button>
-        </form>
-    </div>
+            <div class="inn_edit_btn"><button id="inn_edit_btn" type="submit">登録</button></div>
+    </form>
+
 </div>
 @endsection

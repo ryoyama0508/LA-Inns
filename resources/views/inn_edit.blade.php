@@ -5,7 +5,7 @@
     <h1 id="home" class="title"><span>宿情報変更
 
     </span></h1>
-    <div class="title_link"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">戻る</a>
+    <div class="title_link"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">戻る</a></div>
 </div>
 
 <hr>
@@ -21,7 +21,7 @@
         @csrf
         @method( 'put' )
         <p id="search_result_label">
-            <img  id="inn_img_edit" src="data:image/png;base64,{{ $inn->pic_path }}" alt="inn picture">
+            <img  id="inn_img_edit" src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
         </p>
 
         <p>
@@ -82,7 +82,7 @@
             <input type="hidden" name="plans[]" value="{{ $plan }}">
         @endforeach
             
-        <div class="inn_edit_plan_btn"><button type="submit" id="inn_edit_plan_btn">プランを追加する</button></div>
+        <div class="inn_edit_btn"><button type="submit" id="inn_edit_btn">プランを追加する</button></div>
     </form>
 
 </div>
