@@ -99,16 +99,13 @@ class InnController extends Controller
      */
     public function update(Request $request, Inn $inn)
     {
-        $path = '';
-        $image = $request->file('image'); 
-        if( isset($image) === true ){// 新しい写真を追加してある場合、
+        if( file_get_contents($request->image) ){// 新しい写真を追加してある場合、
             if( isset($inn->pic_path) ){// 以前の写真を消すようにする
                 if(File::exists($inn->pic_path)) {
                     File::delete($inn->pic_path);
                 }
             }
-            $path = $image->store('photos', 'public');
-            $inn->pic_path = $path;
+            $inn->pic_path = base64_encode(file_get_contents($request->image));
         }
 
         if( isset($inn->pic_path) ){
