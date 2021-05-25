@@ -21,7 +21,7 @@
 </form>
 
 <div class="inn_card_container">
-@if( isset( $inns ) )
+    @if( isset( $inns ) )
     @foreach ($inns as $inn)
         <div class="inn_card">
             <div id="inn_name"><p>{{ $inn->name }}</p></div>
@@ -56,14 +56,14 @@
 
     @endforeach
 
-<script type="text/javascript">
-    function deleteInn(id){
-        event.preventDefault();
-        if( window.confirm( '本当に削除しますか？' ) ){
-            document.getElementById( "delete-form"+String(id) ).submit();
+    <script type="text/javascript">
+        function deleteInn(id){
+            event.preventDefault();
+            if( window.confirm( '本当に削除しますか？' ) ){
+                document.getElementById( "delete-form"+String(id) ).submit();
+            }
         }
-    }
-</script>
+    </script>
 </div>
 @endif
 @endsection
