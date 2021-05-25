@@ -17,23 +17,23 @@
 <div>
     {{-- user_icon --}}
 </div>
-<div class="user_search_result">
+<div class="search_result">
     <form action="{{ route( 'users.update', $user->id ) }}" method="POST">
         @csrf
         @method( 'put' )
-        <p id="user_result_label">
+        <p id="search_result_label">
             <label for="name">名前</label>
-            <input id="user_search_result_bar" type="text" name="name" value="{{ $user->name }}">
+            <input id="search_result_bar" type="text" name="name" value="{{ $user->name }}">
         </p>
         
-        <p id="user_result_label">
+        <p id="search_result_label">
             <label for="email">メールアドレス</label>
-            <input id="user_search_result_bar" type="text" name="email" value="{{ $user->email }}">
+            <input id="search_result_bar" type="text" name="email" value="{{ $user->email }}">
         </p>
         
-        <p id="user_result_label">
+        <p id="search_result_label">
             <label for="name">パスワード</label>
-            <input id="user_search_result_bar" type="text" name="password" value="{{ $user->password }}">
+            <input id="search_result_bar" type="text" name="password" value="{{ $user->password }}">
         </p>
         <div class="edit_btn"><button id="edit_btn" type="submit">変更する</button></div>
     </form>

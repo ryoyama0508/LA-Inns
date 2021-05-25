@@ -51,6 +51,7 @@ h1{
     padding: 32px 41px 32px;
 }
 
+
 .button {
     /* margin-top: 80px; */
     display       : inline-block;
@@ -87,7 +88,8 @@ h1{
     height: 48px;
     width: 465px;
     font-size: 30px;
- }
+}
+ 
 
 
   #search_button{
@@ -95,19 +97,19 @@ h1{
     width: 80px;
     font-size: 29px;
   }
-  .user_search_result{
+  .search_result{
     margin: 96px 470px;
   }
 
-  .user_search_result_bar{
+  .search_result_bar{
     font-size: 21px;
   }
 
-  #user_result_label{
+  #result_label{
     font-size: 21px;
   }
 
-  #user_search_result_bar{
+  #search_result_bar{
     font-size: 19px;
   }
 
@@ -141,6 +143,68 @@ h1{
   background: #000;
   }
   
+
+  .inn_edit_btn{
+    margin: 25px 130px;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inn_edit_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+
+  #inn_edit_btn{
+    background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+        font-size: 23px;
+  }
+  
+  #inn_edit_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+  
+  .inn_edit_plan_btn{
+    margin: 25px 130px;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inn_edit_plan_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+
+  #inn_edit_plan_btn{
+    background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+        font-size: 23px;
+  }
+  
+  #inn_edit_plan_btn:hover{
+    color: #fff;
+  background: #000;
+  }
+
+
   #back_home{
     font-size: 20px;
     /* position: relative;
@@ -175,6 +239,17 @@ h1{
     margin: 0 -67px 0 -75px;
     background-color: rgb(212, 209, 209);
   } */
+
+ #inn_img{
+  height: 186px;
+  width: 208px;
+  border-radius: 8%;
+ }
+
+#inn_img_edit{
+ height: 235px;
+ width: 350px;
+}
 
   .inn_card{
     background-color: rgb(212, 209, 209);
@@ -298,4 +373,9 @@ h1{
   .btn_inns_search:hover {
     color: #fff;
     background: #000;
+  }
+
+  #plan_create_form{
+    position: absolute;
+
   }
