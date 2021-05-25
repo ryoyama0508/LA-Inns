@@ -33,12 +33,12 @@
         event.preventDefault();
         if( window.confirm( '本当に削除しますか？' ) ){
             const cards = document.getElementById("plan_cards");
-        const child_of_cards = document.getElementById(id+"card");
-        cards.removeChild(child_of_cards);
+            const child_of_cards = document.getElementById(id+"card");
+            cards.removeChild(child_of_cards);
 
-        const my_form = document.getElementById("my_form");
-        const child_of_my_form = document.getElementById(id+"form");
-        my_form.removeChild(child_of_my_form);
+            const my_form = document.getElementById("my_form");
+            const child_of_my_form = document.getElementById(id+"form");
+            my_form.removeChild(child_of_my_form);
         }
     }
 </script>

@@ -51,18 +51,16 @@ class InnController extends Controller
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
             
-            if (isset($plans)){
-                foreach ($plans as $tmp_plan) {
-                    $assocArrayPlan = json_decode($tmp_plan, true);
-                    $plan = new Plan;
-                    $plan->inn_id = $inn->id;
+            foreach ($plans as $tmp_plan) {
+                $assocArrayPlan = json_decode($tmp_plan, true);
+                $plan = new Plan;
+                $plan->inn_id = $inn->id;
 
-                    $plan->name = $assocArrayPlan['name'];
-                    $plan->content = $assocArrayPlan['content'];
-                    $plan->price = $assocArrayPlan['price'];
-                    
-                    $plan->save();
-                }
+                $plan->name = $assocArrayPlan['name'];
+                $plan->content = $assocArrayPlan['content'];
+                $plan->price = $assocArrayPlan['price'];
+                
+                $plan->save();
             }
         }
         return redirect( route( 'inns.index' ) );
@@ -87,7 +85,8 @@ class InnController extends Controller
      */
     public function edit(Inn $inn)
     {
-        return view( 'inn_edit', [ 'inn' => Inn::findOrFail($inn->id) ] );
+        $plans = Plan::where('inn_id', $inn->id)->get();
+        return view( 'inn_edit', [ 'inn' => Inn::findOrFail($inn->id) ], [ 'plans' => $plans ]);
     }
 
     /**
@@ -103,6 +102,29 @@ class InnController extends Controller
         if( isset($request->address) ) $inn->address = $request->address;
         if( isset($request->rooms) ) $inn->rooms = $request->rooms;
         $inn->save();
+
+        $plans = Plan::where('inn_id', $inn->id)->get();
+        foreach ($plans as $plan) {
+            Plan::findOrFail($plan->id)->delete();
+        }
+
+        if(isset($request->all()['plans'])){
+            $plans = $request->all()['plans'];
+            foreach ($plans as $tmp_plan) {
+                $assocArrayPlan = json_decode($tmp_plan, true);
+                $plan = new Plan;
+                $plan->inn_id = $inn->id;
+
+                $plan->name = $assocArrayPlan['name'];
+                $plan->content = $assocArrayPlan['content'];
+                $plan->price = $assocArrayPlan['price'];
+                
+                $plan->save();
+            }
+        }
+
+        
+
         return redirect( route( 'inns.index' ) );
     }
 
@@ -137,4 +159,5 @@ class InnController extends Controller
             return view('inn_create', []);
         }
     }
+
 }
