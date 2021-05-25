@@ -29,16 +29,16 @@
             <div class="inn_card_right">
                 <div class="inn_card_font">
                     <p>
-                        住所 東京都 〇〇区123-5678 {{ $inn->address }}
+                        住所 {{ $inn->address }}
                     </p>
                     <p>
-                        部屋数 100部屋 {{ $inn->rooms }}
+                        部屋数 {{ $inn->rooms }}
                     </p>
                     <p>
-                        チェックイン時間  ○○：○○ - ○○：○○ {{ $inn->checkin }}
+                        チェックイン時間  {{ $inn->checkin }}
                     </p>
                     <p>
-                        チェックイン時間  ○○：○○ - ○○：○○ {{ $inn->checkout }}
+                        チェックイン時間  {{ $inn->checkout }}
                     </p>
                     
 
