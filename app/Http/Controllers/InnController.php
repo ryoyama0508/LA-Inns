@@ -109,9 +109,9 @@ class InnController extends Controller
     public function update(Request $request, Inn $inn)
     {
         $validated = $request->validate([
-            'name' => 'max:255',
+            'name' => 'max:50',
             'address' => '',
-            'rooms' => 'integer',
+            'rooms' => 'integer|min:0',
             'checkin' => 'integer|min:0, max:24',
             'checkout' => 'integer|min:0, max:24',
             'image' => '',
@@ -147,20 +147,8 @@ class InnController extends Controller
             Plan::findOrFail($plan->id)->delete();
         }
 
-        if(isset($request->all()['plans'])){
-            $plans = $request->all()['plans'];
-            foreach ($plans as $tmp_plan) {
-                $assocArrayPlan = json_decode($tmp_plan, true);
-                $plan = new Plan;
-                $plan->inn_id = $inn->id;
+        app('App\Http\Controllers\PlanController')->store($request, $inn);
 
-                $plan->name = $assocArrayPlan['name'];
-                $plan->content = $assocArrayPlan['content'];
-                $plan->price = $assocArrayPlan['price'];
-                
-                $plan->save();
-            }
-        }
         return redirect( route( 'inns.index' ) );
     }
 
@@ -181,12 +169,6 @@ class InnController extends Controller
     {
         $inns = Inn::where('name','LIKE', "%$request->name%")->get();
         return view('inn_index', ['inns' => $inns]);
-    }
-
-    public function changeInfo(Inn $inn)
-    {
-        $inn = Inn::where('id','=', "$inn->id")->get();
-        return view('inn_change_info', ['inn' => $inn]);
     }
 
     public function backFromPlanCreate(Request $request)

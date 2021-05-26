@@ -46,7 +46,7 @@
         }
     </script>
 
-    <form action="{{ route('createOnePlan') }}" method="POST">
+    <form action="{{ route('create_plan') }}" method="POST">
         @csrf
         
         @foreach ($plans as $plan)
