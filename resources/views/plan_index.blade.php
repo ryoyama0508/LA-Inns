@@ -10,10 +10,9 @@
         @foreach ($plans as $plan)
             <input type="hidden" name="plans[]" value="{{ $plan }}" id="{{ $plan->name }}form">
         @endforeach
-        
+        <div class="create_plan"><button id="back_home" class="button" type="submit">プランを確定</a></div>
     </form>
 </div>
-<div class="create_plan"><a id="back_home" class="button" type="button" href="javascript:{}" onclick="document.getElementById('my_form').submit();">プランを確定</a></div>
 @endsection
 
 @section( 'tbody' )

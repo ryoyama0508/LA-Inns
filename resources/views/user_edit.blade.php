@@ -25,7 +25,7 @@
             <label for="name">名前</label>
             <input id="search_result_bar" type="text" name="name" value="{{ $user->name }}">
             @if(isset($errors))
-                <p>{{ $errors->first('name') }}</p>
+                <p style="color: red;">{{ $errors->first('name') }}</p>
             @endif
         </p>
         
@@ -33,7 +33,7 @@
             <label for="email">メールアドレス</label>
             <input id="search_result_bar" type="text" name="email" value="{{ $user->email }}">
             @if(isset($errors))
-                <p>{{ $errors->first('email') }}</p>
+                <p style="color: red;">{{ $errors->first('email') }}</p>
             @endif
         </p>
         
@@ -41,7 +41,7 @@
             <label for="name">パスワード</label>
             <input id="search_result_bar" type="text" name="password" value="{{ $user->password }}">
             @if(isset($errors))
-                <p>{{ $errors->first('password') }}</p>
+                <p style="color: red;">{{ $errors->first('password') }}</p>
             @endif
         </p>
         <div class="edit_btn"><button id="edit_btn" type="submit">変更する</button></div>

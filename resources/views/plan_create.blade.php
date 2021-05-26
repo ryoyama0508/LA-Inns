@@ -12,7 +12,7 @@
 
 @section( 'tbody' )
 <div class="search_result">
-    <form action="{{ route('append') }}" method="POST">
+    <form action="{{ route('append') }}" id="my_form" onsubmit="return validateForm()" method="POST">
         @csrf
         <div>
             <div id="search_result_label">
@@ -35,7 +35,35 @@
         <input type="hidden" name="plans[]" value="{{ $plan }}">    
         @endforeach
         
-        <div class="inn_edit_btn"><button id="inn_edit_btn" type="submit">追加</button></div>
+        <div class="inn_edit_btn"><button id="inn_edit_btn"  type="submit">追加</button></div>
     </form>
+
+    <script>
+        function validateForm() {
+            var name = document.forms["my_form"]["name"].value;
+            
+            if (name == "") {
+                alert("プラン名を入力してください");
+                return false;
+            }
+
+            var content = document.forms["my_form"]["content"].value;
+            if (content == "") {
+                alert("内容を入力してください");
+                return false;
+            }
+
+            var price = document.forms["my_form"]["price"].value;
+            if (price == "") {
+                alert("値段を入力してください");
+                return false;
+            }else{
+                if (!Number.isInteger(price)){
+                alert("価格は整数で入力してください");
+                return false;
+                }
+            }
+        }
+    </script>
 </div>
 @endsection

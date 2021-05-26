@@ -32,7 +32,7 @@
             <label for="name">名前</label>
             <input id="search_result_bar" type="text" name="name" value="{{ $inn->name }}">
             @if(isset($errors))
-                    <p>{{ $errors->first('name') }}</p>
+                    <p style="color: red;">{{ $errors->first('name') }}</p>
             @endif
         </p>
         
@@ -45,7 +45,7 @@
             <label for="rooms">部屋数</label>
             <input id="search_result_bar" type="number" step="1" pattern="\d+" name="rooms" value="{{ $inn->rooms }}">
             @if(isset($errors))
-                    <p>{{ $errors->first('rooms') }}</p>
+                    <p style="color: red;">{{ $errors->first('rooms') }}</p>
             @endif
         </p>
         
@@ -54,7 +54,7 @@
             <label for="checkin">チェックイン</label>
             <input id="search_result_bar" type="number" name="checkin" value="{{ $inn->checkin }}">
             @if(isset($errors))
-                <p>{{ $errors->first('checkin') }}</p>
+                <p style="color: red;">{{ $errors->first('checkin') }}</p>
             @endif
         </p>
         
@@ -62,7 +62,7 @@
             <label for="checkout">チェックアウト</label>
             <input id="search_result_bar" type="number" name="checkout" value="{{ $inn->checkout }}">
             @if(isset($errors))
-                <p>{{ $errors->first('checkout') }}</p>
+                <p style="color: red;">{{ $errors->first('checkout') }}</p>
             @endif
         </p>
        
