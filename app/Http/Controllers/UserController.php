@@ -70,10 +70,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {   
+        $validated = $request->validate([
+            'name' => 'max:255',
+            'email' => 'email:rfc,dns',
+            'password' => 'min:8',
+        ]);
         $user = User::find( $id );
-        if( isset($request->name) ) $user->name = $request->name;
-        if( isset($request->email) ) $user->email = $request->email;
-        if( isset($request->password) ) $user->password = $request->password;
+        if( isset($validated['name']) ) $user->name = $validated['name'];
+        if( isset($validated['email']) ) $user->email = $request['email'];
+        if( isset($validated['password']) ) $user->password = $request['password'];
         $user->save();
         return redirect( route( 'users.index' ) );
     }
