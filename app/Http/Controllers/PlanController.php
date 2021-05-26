@@ -35,9 +35,22 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Inn $inn)
     {
-        //
+        if(isset($request->all()['plans'])){
+            $plans = $request->all()['plans'];
+            foreach ($plans as $tmp_plan) {
+                $assocArrayPlan = json_decode($tmp_plan, true);
+                $plan = new Plan;
+                $plan->inn_id = $inn->id;
+
+                $plan->name = $assocArrayPlan['name'];
+                $plan->content = $assocArrayPlan['content'];
+                $plan->price = $assocArrayPlan['price'];
+                
+                $plan->save();
+            }
+        }
     }
 
     /**
@@ -85,10 +98,9 @@ class PlanController extends Controller
         //
     }
 
-    public function createOnePlan(Request $request){
+    public function planCreate(Request $request){
         if( isset($request->all()['plans']) ){
-            $plans = $request->all()['plans'];
-            
+            $plans = $request->all()['plans'];//array
             return view('plan_create', ['plans' => $plans]);
         }else{
             return view('plan_create', ['plans'=>[]]);
@@ -99,6 +111,7 @@ class PlanController extends Controller
         $plans = array();
         if (isset($request->all()['plans'])){
             $strPlans = $request->all()['plans'];
+            
             foreach ($strPlans as $strPlan) {
                 $assocArrayPlan = json_decode($strPlan, true);
                 
