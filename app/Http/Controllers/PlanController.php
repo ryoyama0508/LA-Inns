@@ -130,6 +130,7 @@ class PlanController extends Controller
                 $plans[] = $plan;
             }
         }
+
         $plan = new Plan;
         if( isset($request->name) ) {
             $plan->name = $request->name;
@@ -156,7 +157,6 @@ class PlanController extends Controller
             $plans = $request->all()['plans'];
             return view('plan_create_from_inn_edit',['inn' => $inn], ['plans' => $plans]);
         }else{
-
             return view('plan_create_from_inn_edit',['inn' => $inn], ['plans'=>[]]);
         }
     }
@@ -183,6 +183,7 @@ class PlanController extends Controller
                 $plans[] = $plan;
             }
         }
+
         $plan = new Plan;
         if( isset($request->name) ) {
             $plan->name = $request->name;
@@ -197,7 +198,7 @@ class PlanController extends Controller
         }
 
         $plans[] = $plan;
-        $assocArrayPlan = json_decode($request['inn'], true);
-        return view( 'inn_edit',[ 'inn' => Inn::findOrFail($assocArrayPlan['id']) ], ['plans' => $plans]);
+        $assocArrayInn = json_decode($request['inn'], true);
+        return view( 'inn_edit',[ 'inn' => Inn::findOrFail($assocArrayInn['id']) ], ['plans' => $plans]);
     }
 }
