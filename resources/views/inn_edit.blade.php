@@ -21,7 +21,7 @@
         @csrf
         @method( 'put' )
         <p id="search_result_label">
-            <img  id="inn_img_edit" src="{{ asset('storage/' .$inn->pic_path) }}" alt="inn picture">
+            <img  id="inn_img_edit" src="data:image/png;base64,{{ $inn->pic_path }}" alt="inn picture">
         </p>
 
         <p>
@@ -31,27 +31,39 @@
         <p>
             <label for="name">名前</label>
             <input id="search_result_bar" type="text" name="name" value="{{ $inn->name }}">
+            @if(isset($errors))
+                    <p>{{ $errors->first('name') }}</p>
+            @endif
         </p>
         
         <p id="search_result_label">
-            <label for="email">住所</label>
+            <label for="address">住所</label>
             <input id="search_result_bar" type="text" name="address" value="{{ $inn->address }}">
         </p>
         
         <p id="search_result_label">
-            <label for="name">部屋数</label>
+            <label for="rooms">部屋数</label>
             <input id="search_result_bar" type="number" step="1" pattern="\d+" name="rooms" value="{{ $inn->rooms }}">
+            @if(isset($errors))
+                    <p>{{ $errors->first('rooms') }}</p>
+            @endif
         </p>
         
 
         <p id="search_result_label">
-            <label for="name">チェックイン</label>
-            <input id="search_result_bar" type="text" name="checkin_date">
+            <label for="checkin">チェックイン</label>
+            <input id="search_result_bar" type="number" name="checkin" value="{{ $inn->checkin }}">
+            @if(isset($errors))
+                <p>{{ $errors->first('checkin') }}</p>
+            @endif
         </p>
         
         <p id="search_result_label">
-            <label for="name">チェックアウト</label>
-            <input id="search_result_bar" type="text" name="checkout_date">
+            <label for="checkout">チェックアウト</label>
+            <input id="search_result_bar" type="number" name="checkout" value="{{ $inn->checkout }}">
+            @if(isset($errors))
+                <p>{{ $errors->first('checkout') }}</p>
+            @endif
         </p>
        
 

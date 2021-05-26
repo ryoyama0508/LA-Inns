@@ -39,13 +39,22 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'address' => 'required',
+            'rooms' => 'integer|required',
+            'checkin' => 'integer|required|min:0, max:24',
+            'checkout' => 'integer|required|min:0, max:24',
+            'image' => 'required',
+            'plans' => 'required',
+        ]);
         $inn = new Inn;
-        $inn->name = $request->name;
-        $inn->address = $request->address;
-        $inn->rooms = $request->rooms;
-        $inn->checkin = $request->checkin;
-        $inn->checkout = $request->checkout;
-        $inn->pic_path = base64_encode(file_get_contents($request->image));
+        $inn->name = $validated['name'];
+        $inn->address = $validated['address'];
+        $inn->rooms = $validated['rooms'];
+        $inn->checkin = $validated['checkin'];
+        $inn->checkout = $validated['checkout'];
+        $inn->pic_path = base64_encode(file_get_contents($validated['image']));
         $inn->save();
 
         if( isset($request->all()['plans']) ){
@@ -99,13 +108,25 @@ class InnController extends Controller
      */
     public function update(Request $request, Inn $inn)
     {
-        if( file_get_contents($request->image) ){// 新しい写真を追加してある場合、
-            if( isset($inn->pic_path) ){// 以前の写真を消すようにする
-                if(File::exists($inn->pic_path)) {
-                    File::delete($inn->pic_path);
+        $validated = $request->validate([
+            'name' => 'max:255',
+            'address' => '',
+            'rooms' => 'integer',
+            'checkin' => 'integer|min:0, max:24',
+            'checkout' => 'integer|min:0, max:24',
+            'image' => '',
+            'plans' => '',
+        ]);
+
+        if ( isset($validated['image']) ){
+            if( file_get_contents($validated['image']) ){// 新しい写真を追加してある場合、
+                if( isset($inn->pic_path) ){// 以前の写真を消すようにする
+                    if(File::exists($inn->pic_path)) {
+                        File::delete($inn->pic_path);
+                    }
                 }
+                $inn->pic_path = base64_encode(file_get_contents($validated['image']));
             }
-            $inn->pic_path = base64_encode(file_get_contents($request->image));
         }
 
         if( isset($inn->pic_path) ){
@@ -114,9 +135,11 @@ class InnController extends Controller
             }
         }
 
-        if( isset($request->name) ) $inn->name = $request->name;
-        if( isset($request->address) ) $inn->address = $request->address;
-        if( isset($request->rooms) ) $inn->rooms = $request->rooms;
+        if( isset($validated['name']) ) $inn->name = $validated['name'];
+        if( isset($validated['address']) ) $inn->address = $validated['address'];
+        if( isset($validated['rooms']) ) $inn->rooms = $validated['rooms'];
+        if( isset($validated['checkin']) ) $inn->checkin = $validated['checkin'];
+        if( isset($validated['checkout']) ) $inn->checkout = $validated['checkout'];
         $inn->save();
 
         $plans = Plan::where('inn_id', $inn->id)->get();
