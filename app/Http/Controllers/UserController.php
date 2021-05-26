@@ -77,8 +77,8 @@ class UserController extends Controller
         ]);
         $user = User::find( $id );
         if( isset($validated['name']) ) $user->name = $validated['name'];
-        if( isset($validated['email']) ) $user->email = $request['email'];
-        if( isset($validated['password']) ) $user->password = $request['password'];
+        if( isset($validated['email']) ) $user->email = $validated['email'];
+        if( isset($validated['password']) ) $user->password = $validated['password'];
         $user->save();
         return redirect( route( 'users.index' ) );
     }
