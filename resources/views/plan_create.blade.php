@@ -58,9 +58,10 @@
                 alert("値段を入力してください");
                 return false;
             }else{
+                price = Number( price );
                 if (!Number.isInteger(price)){
-                alert("価格は整数で入力してください");
-                return false;
+                    alert("価格は整数で入力してください");
+                    return false;
                 }
             }
         }
