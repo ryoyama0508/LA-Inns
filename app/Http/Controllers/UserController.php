@@ -73,12 +73,10 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'max:255',
             'email' => 'email:rfc,dns',
-            'password' => 'min:8',
         ]);
         $user = User::find( $id );
         if( isset($validated['name']) ) $user->name = $validated['name'];
         if( isset($validated['email']) ) $user->email = $validated['email'];
-        if( isset($validated['password']) ) $user->password = $validated['password'];
         $user->save();
         return redirect( route( 'users.index' ) );
     }

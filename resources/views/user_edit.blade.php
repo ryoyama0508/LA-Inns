@@ -37,13 +37,6 @@
             @endif
         </p>
         
-        <p id="search_result_label">
-            <label for="name">パスワード</label>
-            <input id="search_result_bar" type="text" name="password" value="{{ $user->password }}">
-            @if(isset($errors))
-                <p style="color: red;">{{ $errors->first('password') }}</p>
-            @endif
-        </p>
         <div class="edit_btn"><button id="edit_btn" type="submit">変更する</button></div>
     </form>
 </div>
