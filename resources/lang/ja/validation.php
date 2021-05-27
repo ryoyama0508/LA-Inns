@@ -156,6 +156,8 @@ return [
         'checkin' => 'チェックイン',
         'checkout' => 'チェックアウト',
         'rooms' => '部屋数',
+        'plans' => 'プラン',
+        'image' => '画像'
     ],
 
 ];
