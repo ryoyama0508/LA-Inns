@@ -69,8 +69,9 @@
 
         <p id="search_result_label">
             <label for="name">プラン</label>
-            <div id="plan_cards">
+            {{-- <div id="plan_cards"> --}}
                 @foreach ($plans as $plan)
+                <div id="plan_cards">
                     <div id="{{ $plan->id }}card">
                     <p>プラン名:{{ $plan->name }}</p>
                     <p>内容:{{ $plan->content }}</p>
@@ -79,8 +80,9 @@
                     </div>
 
                     <input type="hidden" id="{{ $plan->id }}input" name="plans[]" value="{{ $plan }}">
+                </div>
                 @endforeach
-            </div>
+            {{-- </div> --}}
         </p>
         <div class="inn_edit_btns">
             <div class="inn_edit_btn"><button type="submit" id="inn_edit_btn">変更する</button></div>
