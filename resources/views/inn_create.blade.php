@@ -2,9 +2,9 @@
 
 @section( 'header' )
 <div class="title_bar">
-    <h1 id="home" class="title"><span>宿新規登録</span></h1>
-    <div class="title_link"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">宿検索に戻る</a></div>
-
+    <h1 id="home" class="title"><span>宿新規登録</span>
+        <div class="title_link_left"><a id="back_home" class="button" type="button" href="{{ route( 'inns.index' ) }}">宿検索に戻る</a></div>
+    </h1>
 </div>
 
 <div></div>

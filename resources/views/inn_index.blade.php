@@ -3,10 +3,10 @@
 @section( 'header' )
 
 <div class="title_bar">
-    <h1  id="home" class="title"><span>宿検索</span></h1>
-
-    <div class="title_link"><a id="back_home" class="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a></div>
-    <div class="title_link"><a  id="create_inns_button" href="{{ route( 'inns.create' ) }}">宿新規作成</a></div>
+    <h1  id="home" class="title"><span>宿検索</span>
+        <div class="title_link_left"><a id="back_home" class="button" href="{{ route( 'admin_home' ) }}">ホームに戻る</a></div>
+        <div class="title_link_right"><a  id="create_inns_button" class="button" href="{{ route( 'inns.create' ) }}">宿新規作成</a></div>
+    </h1>
 <div>
  
 

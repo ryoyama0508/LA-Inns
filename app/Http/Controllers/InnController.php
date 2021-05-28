@@ -55,12 +55,12 @@ class InnController extends Controller
         }
 
         $inn = new Inn;
-        $inn->name = $validated['name'];
-        $inn->address = $validated['address'];
-        $inn->rooms = $validated['rooms'];
-        $inn->checkin = $validated['checkin'];
-        $inn->checkout = $validated['checkout'];
-        $inn->pic_path = base64_encode(file_get_contents($validated['image']));
+        $inn->name = $request->name;
+        $inn->address = $request->address;
+        $inn->rooms = $request->rooms;
+        $inn->checkin = $request->checkin;
+        $inn->checkout = $request->checkout;
+        $inn->pic_path = base64_encode(file_get_contents($request->image));
         $inn->save();
 
         if( isset($request->all()['plans']) ){
