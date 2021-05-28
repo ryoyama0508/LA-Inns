@@ -48,6 +48,7 @@
             <div>
                 プラン
                 @if (isset($plans))
+                    
                     @foreach ($plans as $plan)
                     <?php $assocArrayPlan = json_decode($plan, true); ?>
                     <p>プラン名：<?php echo $assocArrayPlan['name'];?></p>
