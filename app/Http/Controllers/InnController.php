@@ -6,7 +6,7 @@ use App\Inn;
 use App\Plan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\Validator;
 
 class InnController extends Controller
 {
@@ -39,7 +39,7 @@ class InnController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validated = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'address' => 'required',
             'rooms' => 'integer|required',
@@ -48,6 +48,12 @@ class InnController extends Controller
             'image' => 'required',
             'plans' => 'required',
         ]);
+
+        if ($validated->fails()) {
+                return redirect(route( 'inns.create' ))
+            ->withErrors($validated)->withInput();
+        }
+
         $inn = new Inn;
         $inn->name = $validated['name'];
         $inn->address = $validated['address'];
@@ -173,6 +179,7 @@ class InnController extends Controller
 
     public function backFromPlanCreate(Request $request)
     {
+        $inn = new Inn;
         if( isset($request->all()['plans']) ){
             $plans = $request->all()['plans'];
             return view('inn_create', ['plans' => $plans]);
